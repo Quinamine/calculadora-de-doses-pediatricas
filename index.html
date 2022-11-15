@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-MZ">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora de Doses Pediátricas</title>
+        <meta name="robots" content="index, follow"/>
+        <meta name="description" content="Calcula automaticamente doses terapêuticas dos medicamentos mais usuais na prática clínica com base no Formulário Nacional de Medicamentos, bastando o usuário inserir o peso e escolher o fármaco do qual pretende calcular a dose." /> 
+        <meta name="keywords" content="Calculadora de Doses Pediátricas, Dosagem de Medicamentos." />
+        <meta name="author" content="Adérito Félix Quinamine" />
+
+        <!-- PARTILHA NAS REDES SOCIAIS -->
+        <meta property="og:url" content="https://www.quinamine.github.io/calculadora-de-doses-pediatricas/index.html"/>
+        <meta property="og:title" content="Calculadora de Doses Pediátricas" />
+        <meta property="og:description" content="Calcula automaticamente doses terapêuticas dos medicamentos mais usuais na prática clínica com base no Formulário Nacional de Medicamentos, bastando o usuário inserir o peso e escolher o fármaco do qual pretende calcular a dose." />
+        <meta property="og:image" content="https://www.quinamine.github.io/calculadora-de-doses-pediatricas/imagens/calculadora-de-doses.jpg">
+       
+        <!-- DESIGN -->
+        <link rel="stylesheet" href="estetica/reset.css" />
+        <link rel="stylesheet" href="estetica/index.css" />
+
+        <!-- SCRIPTS -->
+        <script src="fisiologia/index.js"></script>
+        <script src="fisiologia/calculadora.js"></script>
+         
+        <noscript>O seu navegador está com o JavaScript desabilitado e isso bloqueia as funcionalidades da Calculadora. Habilite-o nas configurações do navegador e recarregue a página.</noscript>
+
+    </head>
+    <body>
+        
+        <header>
+            <div class="linha">
+                <a href="index.html" id="logotipo">Calculadora de Doses Pediátricas</a>
+        
+                <!-- 
+                <button class="partilhar">
+                    <svg style="width: 25px; height: 20px;">
+                        <circle r="2.5" cx="5" cy="50%" fill="none" stroke-width="2px" stroke="var(--primary-color)"></circle>
+
+                        <circle r="2.5" cx="20" cy="5" fill="none" stroke-width="2px" stroke="var(--primary-color)"></circle>
+                        
+                        <circle r="2.5" cx="20" cy="15" fill="none" stroke-width="2px" stroke="var(--primary-color)"></circle>
+                        
+                        <line x1="7.5" x2="17.5" y1="9" y2="5" stroke-width="2px" stroke="var(--primary-color)"></line>
+
+                        <line x1="7.5" x2="17.5" y1="11" y2="15" stroke-width="2px" stroke="var(--primary-color)"></line>
+                        
+                    </svg>
+                </button>  
+                -->
+            </div>                
+           <nav class="menu-principal">
+                <ul>
+                    
+                </ul>
+           </nav>
+        </header>
+
+        <main class="linha">
+           
+            <div class="doseador">
+                <h1>Calculadora de doses</h1>
+
+                <div class="campo-de-peso">
+                    <label for="peso" class="peso">Peso:</label>
+                    <input type="number" min="3" max="45" id="peso" placeholder="Digite o peso da criança"/>
+                    <label for="peso" class="kg">kg</label>
+                </div>
+                <p class="msg-de-validacao-de-peso"></p>
+
+                <div class="campo-de-farmaco pos-relative">                            
+                    <label for="farmaco">Fármaco:</label>
+                   
+                    <ul class="select on">
+                        <li class="placeholder arvs selected" data-nome="placeholder">
+                            <span class="mobile">Toque</span> 
+                            <span class="desk">Clique</span> 
+                            aqui para ver os fármacos
+                        </li>
+
+                        <div class="caixa-de-pesquisa">
+                            <button class="voltar">
+                                <svg style="width: 16px; height: 16px;">
+                                    <line x1="0%" x2="50%" y1="50%" y2="0" stroke-width="2px" stroke="var(--blc-text-color)"></line>
+                                    <line x1="0%" x2="50%" y1="50%" y2="100%" stroke-width="2px" stroke="var(--blc-text-color)"></line>
+                                    <line x1="-1" x2="100%" y1="50%" y2="50%" stroke-width="2px" stroke="var(--blc-text-color)"></line>
+                                </svg>
+                            </button>
+                            <input type="search" id="src" placeholder="Pesquisar fármacos" />
+                        </div>
+                        <div class="optgroup penicilinas">
+                            <h3>PENICILINAS</h3>                
+                            <li value="fenox-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Fenoximetil 250 mg/5 ml Susp.</li>
+
+                            <li  value="benzatina" data-doseporkg="50000" data-dos="2400000"  data-pos="1" data-forma="inj-im" data-tipodose="parenteral">Penicilina Benzatínica 2.4 milhões U.I Inj.</li>
+
+                            <li value="procaina" data-doseporkg="50000" data-dos="3000000" data-pos="1" data-forma="inj-im" data-tipodose="parenteral">Penicilina Procaína 3 milhões U.I Inj.</li>
+
+                            <li value="amoxicilina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp">Amoxicilina 250 mg/5 ml Susp.</li>
+
+                            <li value="clavamox-susp" data-doseporkg="50" data-dos="312.5" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Amoxicilina e Ácido Clavulânico 312.5 mg/5 ml Susp.</li>
+                        </div>
+
+                        <div class="optgroup macrolidos">
+                            <h3>MACRÓLIDOS</h3>
+                            
+                            <li value="azitromicina" data-doseporkg="10" data-dos="250" data-pos="1" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Azitromicina 200 mg/5 ml Susp.</li>
+
+                            <li value="eritromicina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Eritromicina 250 mg/5 ml Susp.</li>
+                        </div>
+
+                        <div class="optgroup sulfamidas">
+                            <h3>SULFAMIDAS</h3>
+
+                            <li value="ctz-susp" data-doseporkg="40" data-dos="240" data-pos="2" data-dil="5" data-forma="susp" data-tipodose="padrao" data-camporequired="idade">Cotrimoxazol 240 mg/5 ml Susp.</li>
+                        </div>
+
+                        <div class="optgroup anfenicois">
+                            <h3>ANFENICÓIS</h3>
+                            <li value="cloranfenicol-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Cloranfenicol 250 mg/5 ml Susp.</li>
+                        </div>
+
+                        <div class="optgroup nitroimidazolicos">
+                            <h3>NITROIMIDAZÓLICOS</h3>
+                            
+                            <li value="metronidazol-susp" data-doseporkg="22.5" data-dos="200" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Metronidazol 200 mg/5 ml Susp.</li>
+
+                            <li value="metronidazol-susp-125" data-doseporkg="22.5" data-dos="125" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp" data-camporequired="peso">Metronidazol 125 mg/5 ml Susp.</li>
+                        </div>
+                        
+                        <div class="optgroup anti-helmintos">
+                            <h3>ANTI-HELMINTICOS</h3>
+                            <li value="mebendazol-100" data-dos="100" data-pos="2" data-forma="cp" data-tipodose="padrao">Mebendazol 100mg Comp.</li>
+                        </div>
+                        
+                        <div class="optgroup anti-malaricos">
+                            <h3>ANTI-MALÁRICOS</h3>
+                            <li value="al" data-dos="140"  data-pos="2" data-forma="cp" data-tipodose="padrao" data-camporequired="both">Arteméter+Lumefantrina 140 mg Comp.</li>
+
+                            <li value="quinina" data-doseporkg="30" data-dos="300" data-pos="3" data-forma="cp" data-tipodose="padrao" data-camporequired="both">Quinina 300 mg Comp.</li>
+                        </div>
+
+                        <div class="optgroup analgesicos">
+                            <h3>ANALGÉSICOS-ANTIPIRÉTICOS E AINES</h3>
+                            
+                            <!--Dose de Paracetamol susp: 10mg/kg/dose ou 30mg/kg/dia-->
+                            <li value="paracetamol-susp" data-doseporkg="30" data-dos="120" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Paracetamol 120 mg/5 ml Susp.</li>
+
+                            <li value="ibuprofeno-susp" data-doseporkg="20" data-dos="100" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Ibuprofeno 100 mg/5 ml Susp.</li>
+                        </div>
+
+                        <div class="optgroup antiemeticos">
+                            <h3>ANTIEMÉTICOS</h3>
+                           
+                            <li value="metoclopramida-susp" data-doseporkg="0.5" data-dos="5" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Metoclopramida 5 mg/5 .ml Xpe.</li>
+                        </div>
+
+                        <div class="optgroup anti-helmintos">
+                            <h3>ANTI-HISTAMÍNICOS</h3>
+                            
+                            <li value="clorfeniramina-susp" data-doseporkg="0.4" data-dos="2" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Clorfeniramina 2 mg/5 ml Xpe.</li>
+                        </div>            
+                    </ul>
+                    <button title="Mostrar lista de fármacos" class="btn-expandir-select">
+                        <svg style="width: 10px; height: 6px;">
+                            <line x1="0" x2="50%" y1="0" y2="100%" stroke-width="1px" stroke="var(--blc-text-color)"></line>
+                            <line x1="50%" x2="100%" y1="100%" y2="0" stroke-width="1px" stroke="var(--blc-text-color)"></line>
+                        </svg>
+                    </button> 
+                </div>
+
+                <div class="output dose-e-posologia">
+                    <h2>Dose e Posologia</h2>
+                   <div class="dose"></div>
+                </div>
+
+                <div class="output notas">
+                    <h2>Notas</h2>
+                    <p class="nota"></p>
+                </div>
+            </div>
+            
+            <article>
+
+                <section class="instrucoes">
+                    <h2>Sobre a Calculadora de Doses Pediátricas</h2>
+
+                    <p>A <b>Calculadora de Doses Pediátricas</b> é um serviço online gratuito que, com base no peso, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica para pacientes pediátricos. <strong>Tem como referência o Formulário Nacional de Medicamentos - 5<span class="sup-parent"><sup>a</sup></span> edição.</strong></p>
+
+                    <p>A Calculadora está basicamente estruturada da seguinte forma:</p>
+
+                    <ul>
+                        <li>Um campo de <b>Peso</b>, para inserir o peso em kg da criança para a qual o Profissional de Saúde pretende calcular a dose;</li>
+
+                        <li>Um campo de <b>Fármaco</b>, com a lista dos fármacos. Aqui o usuário (Profissional de Saúde) escolhe o fármaco do qual pretende calcular a dose. 
+
+                        </li>
+
+                        <li><b>Dose e Posologia:</b> secção de saída em que são mostradas automaticamente a dose e a posologia do antirretroviral selecionado de acordo com o peso inserido.</li>
+
+                        <li><b>Notas:</b> secção de saída em que são mostradas informações importantes relacionadas ao fármaco selecionado.</li>
+                    </ul>
+
+                    <h2>Doses por quilograma de peso utilizadas pela Calculadora</h2>
+
+                   
+                </section>
+            </article>
+
+        </main>
+
+        <section class="propaganda">
+            <div class="linha-de-propaganda">
+                
+                <h4>Talvez se interesse também por:</h4>
+                
+                <div class="contentor-dos-cards">
+                    <div class="col">
+                        <a href="https://quinamine.github.io/calculadora-de-doses-pediatricas/index.html" target="_blank">
+                            
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="" />
+                                <img src="imagens/calculadora-de-doses.png" alt="Calculadora de Doses Pediátricas" />
+                            </picture>
+    
+                            <div class="description">
+                                <h5>Doseador de Antirretrovirais</h5>
+                                <p>
+                                    
+                                </p>
+                                <span class="visitar">Acessar &raquo;</span> 
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="https://quinamine.github.io/totalizador-de-resumo-mensal-de-hiv-e-sida/index.html" target="_blank">
+                            
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="imagens/totalizador-de-resumo-mensal-de-hiv-desk.png" />
+                                <img src="imagens/totalizador-de-resumo-mensal-de-hiv.png" alt="Totalizador de Resumo Mensal de HIV/SIDA" />
+                            </picture>
+
+                            <div class="description">
+                                <h5>Totalizador de Resumo Mensal de HIV/SIDA</h5>
+                                <p>
+                                    Serviço online gratuito que auxilia na elaboração do resumo mensal de HIV/SIDA calculando automaticamente os totais com base nos dados inseridos pelo usuário (Profissional de Saúde). 
+                                </p>
+                                <span class="visitar">Acessar &raquo;</span> 
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="https://quinamine.github.io/totalizador-de-resumo-mensal-de-consultas/index.html" target="_blank">
+                            
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="imagens/totalizador-de-resumo-mensal-de-consultas-desk.png" />
+                                <img src="imagens/totalizador-de-resumo-mensal-de-consultas.png" alt="Totalizador de Resumo Mensal de Consultas" />
+                            </picture>
+                            <div class="description">                               
+                                <h5>Totalizador de Resumo Mensal de Consultas</h5>
+                                <p>
+                                    Serviço online gratuito que auxilia na elaboração do resumo mensal de consultas externas, através do cálculo automático dos subtotais e totais a partir dos dados inseridos pelo usuário (Profissional de Saúde).
+                                </p>
+                                <span class="visitar">Acessar &raquo;</span>
+                            </div>
+                        </a> 
+                    </div>
+                    <div class="col">
+                        <a href="https://quinamine.github.io/totalizador-de-resumo-mensal-de-saaj/index.html" target="_blank">
+                            
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="imagens/totalizador-de-resumo-mensal-de-saaj-desk.png" />
+                                <img src="imagens/totalizador-de-resumo-mensal-de-saaj.png" alt="Totalizador de Resumo Mensal de SAAJ" />
+                            </picture>
+                            <div class="description">
+                                <h5>Totalizador de Resumo Mensal de SAAJ</h5>
+                                <p>
+                                    Serviço online gratuito que auxilia na elaboração do resumo mensal de SAAJ, através do cálculo automático dos totais a partir dos dados inseridos pelo usuário (Profissional de Saúde). 
+                                </p>
+                                <span class="visitar">Acessar &raquo;</span> 
+                            </div>
+                        </a>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+
+        <footer>
+            <div class="linha">
+                <p>
+                    Desenvolvido por: <a href="quinamine.github.io/aderito-felix-quinamine/index.html" target="_blank">Adérito Félix Quinamine</a> &copy;&nbsp;Tarv&nbsp;Pediátrico -&nbsp;Disponível&nbsp;desde&nbsp;<time datetime="2021-09-18">09/09/2021</time>. Última&nbsp;actualização:&nbsp;<time datetime="2021-09-18">08/10/2022.</time>
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
