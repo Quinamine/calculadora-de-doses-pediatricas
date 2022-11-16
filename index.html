@@ -33,35 +33,28 @@
             <div class="linha">
                 <a href="index.html" id="logotipo">Calculadora de Doses Pediátricas</a>
         
-                <!-- 
-                <button class="partilhar">
-                    <svg style="width: 25px; height: 20px;">
-                        <circle r="2.5" cx="5" cy="50%" fill="none" stroke-width="2px" stroke="var(--primary-color)"></circle>
+                <nav class="menu-principal">
+                    <ul>    
+                        <li><a href="files/formulario-nacional-de-medicamentos.pdf" download="Formulário Nacional de Medicamentos">Baixar Formulário Nacional de Medicamentos</a></li>
+                        <li>
+                            <button class="mobile">
+                                Partilhar Calculadora
+                            </button>
+                        </li>  
+                    </ul>
+               </nav>
 
-                        <circle r="2.5" cx="20" cy="5" fill="none" stroke-width="2px" stroke="var(--primary-color)"></circle>
-                        
-                        <circle r="2.5" cx="20" cy="15" fill="none" stroke-width="2px" stroke="var(--primary-color)"></circle>
-                        
-                        <line x1="7.5" x2="17.5" y1="9" y2="5" stroke-width="2px" stroke="var(--primary-color)"></line>
-
-                        <line x1="7.5" x2="17.5" y1="11" y2="15" stroke-width="2px" stroke="var(--primary-color)"></line>
-                        
-                    </svg>
-                </button>  
-                -->
+               <div class="menu-pontinhos">
+                   <div></div>
+                   <div></div>
+                   <div></div>
+               </div>
             </div>                
-           <nav class="menu-principal">
-                <ul>
-                    
-                </ul>
-           </nav>
         </header>
 
         <main class="linha">
            
             <div class="doseador">
-                <h1>Calculadora de doses</h1>
-
                 <div class="campo-de-peso">
                     <label for="peso" class="peso">Peso:</label>
                     <input type="number" min="3" max="45" id="peso" placeholder="Digite o peso da criança"/>
@@ -186,9 +179,9 @@
                 <section class="instrucoes">
                     <h2>Sobre a Calculadora de Doses Pediátricas</h2>
 
-                    <p>A <b>Calculadora de Doses Pediátricas</b> é um serviço online gratuito que, com base no peso, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica para pacientes pediátricos. <strong>Tem como referência o Formulário Nacional de Medicamentos - 5<span class="sup-parent"><sup>a</sup></span> edição.</strong></p>
+                    <p>A <b>Calculadora de Doses Pediátricas</b> é um serviço online gratuito que, com base no peso, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica para pacientes pediátricos. <strong>Tem como referência o Formulário Nacional de Medicamentos - 5ª edição.</strong></p>
 
-                    <p>A Calculadora está basicamente estruturada da seguinte forma:</p>
+                    <p class="mb-15">A Calculadora está basicamente estruturada da seguinte forma:</p>
 
                     <ul>
                         <li>Um campo de <b>Peso</b>, para inserir o peso em kg da criança para a qual o Profissional de Saúde pretende calcular a dose;</li>
@@ -201,10 +194,112 @@
 
                         <li><b>Notas:</b> secção de saída em que são mostradas informações importantes relacionadas ao fármaco selecionado.</li>
                     </ul>
+                </section>
 
-                    <h2>Doses por quilograma de peso utilizadas pela Calculadora</h2>
+                <section class="referencias">
+                    <h2>Doses por quilograma de peso em que se baseia a Calculadora</h2>
 
-                   
+                    <table>
+                        <thead>
+                            <th>Fármaco</th> <th>Dose por kg de peso</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Fenoximetil 250 mg/5 ml Susp.</td>
+                                <td>50 mg/kg/dia divididos em 3 tomas.</td>
+                            </tr>
+                            <tr>
+                                <td>Penicilina Benzatínica 2.4 milhões U.I Inj.</td>
+                                <td>50.000 U.I/kg em dose única ou 1 dose/semana durante 3 semanas.</td>
+                            </tr>
+                            <tr>
+                                <td>Penicilina Procaína 3 milhões U.I Inj.</td>
+                                <td>50.000 U.I/kg em dose única diária.</td>
+                            </tr>
+                            <tr>
+                                <td>Amoxicilina 250 mg/5 ml Susp.</td>
+                                <td>50 mg/kg/dia divididos em 3 tomas.</td>
+                            </tr>
+                            <tr>
+                                <td>Amoxicilina e Ácido clavulânico 312.5 mg/5 ml Susp.</td>
+                                <td>50 mg/kg/dia divididos em 3 tomas.</td>
+                            </tr>
+                            <tr>
+                                <td>Azitromicina 200 mg/5 ml Susp.</td>
+                                <td>10 mg/kg em dose única diária.</td>
+                            </tr>
+                            <tr>
+                                <td>Eritromicina 250 mg/5 ml Susp.</td>
+                                <td>50 mg/kg/dia divididos em 3 tomas.</td>
+                            </tr>
+                            <tr>
+                                <td>Cloranfenicol 250 mg /5 ml Susp.</td>
+                                <td>50 mg/kg/dia divididos em 3 tomas.</td>
+                            </tr>
+                            <tr>
+                                <td>Metronidazol 125 mg/5 ml Susp.</td>
+                                <td>7.5 mg/kg/dose de 8 em 8 horas.</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" class="y-center">
+                                    Mebendazol 100mg Comp. 
+                                </td>
+                                <td>Peso &lt; 20 kg:1/2 comp. de 12/12 h.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Peso &ge; 20 kg: 1 comp. de 12/12 h.</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="5" class="y-center">Arteméter+Lumefantrina 140 mg Comp.</td>
+                                <td>&lt; 5 kg: Não recomendado.</td>
+                            </tr>
+                            <tr><td>5 - 14.9 kg: 1 comp. de 12/12 h por 3 dias.</td></tr>
+                            <tr><td>15 - 24.9 kg: 2 comp. de 12/12 h por 3 dias.</td></tr>
+                            <tr><td>25 - 34.9 kg: 3 comp. de 12/12 h por 3 dias.</td></tr>
+                            <tr><td>&ge; 35 kg: 4 comp. de 12/12 h por 3 dias.</td></tr>
+                            <tr>
+                                <td rowspan="5" class="y-center">Quinina 300 mg Comp.</td>
+                                <td>&lt; 10 kg: 1/4 comp. de 8/8 h por 7 dias.</td>
+                            </tr>
+                            <tr>
+                                <td>10 - 14.9 kg: 1/2 comp. de 8/8 h por 7 dias.</td>
+                            </tr>
+                            <tr>
+                                <td>15 - 24.9 kg: 3/4 comp. de 8/8 h por 7 dias.</td>
+                            </tr>
+                            <tr>
+                                <td>25 - 35 kg: 1 comp. de 8/8 h por 7 dias.</td>
+                            </tr>
+                            <tr>
+                                <td>&gt; 35 kg: 2 comp. de 8/8 h por 7 dias.</td>
+                            </tr>
+                            <tr>
+                                <td>Paracetamol 120 mg/5 ml Susp.</td>
+                                <td>10 mg/kg/dose de 8 em 8 horas.</td>
+                            </tr>
+                            <tr>
+                                <td>Ibuprofeno 100 mg/5 ml Susp.</td>
+                                <td>20 mg/kg/dia divididos em 3 tomas.</td>
+                            </tr>
+                            <tr>
+                                <td>Clorfeniramina 2 mg/5 ml Xpe.</td>
+                                <td>0.4 mg/kg/dia divididos em 3 tomas</td>
+                            </tr>                         
+                        </tbody>
+                        <tfoot>
+                            <td colspan="2">
+
+                                <span>Fontes:</span>
+                                <ul>
+                                    <li>Formulário Nacional de Medicamentos - 5ª Edição, 2007.</li>
+                                    <li>Normas de Tratamento de Malária em Moçambique - 3ª Edição, 2017.</li>
+                                </ul>
+                                  
+                            </td>
+                        </tfoot>
+                    </table>
                 </section>
             </article>
 
@@ -213,7 +308,7 @@
         <section class="propaganda">
             <div class="linha-de-propaganda">
                 
-                <h4>Talvez se interesse também por:</h4>
+                <h4>Veja também:</h4>
                 
                 <div class="contentor-dos-cards">
                     <div class="col">
@@ -290,7 +385,7 @@
         <footer>
             <div class="linha">
                 <p>
-                    Desenvolvido por: <a href="quinamine.github.io/aderito-felix-quinamine/index.html" target="_blank">Adérito Félix Quinamine</a> &copy;&nbsp;Tarv&nbsp;Pediátrico -&nbsp;Disponível&nbsp;desde&nbsp;<time datetime="2021-09-18">09/09/2021</time>. Última&nbsp;actualização:&nbsp;<time datetime="2021-09-18">08/10/2022.</time>
+                    Desenvolvido por: <a href="quinamine.github.io/aderito-felix-quinamine/index.html" target="_blank">Adérito Félix Quinamine</a> &copy;&nbsp;Calculadora de Doses Pediátricas -&nbsp;Todos&nbsp;os&nbsp;direitos reservados
                 </p>
             </div>
         </footer>

@@ -59,13 +59,13 @@ a:link, a:visited {
     text-decoration: none;
 }
 
-a:active, button {
+a:active, button:active {
     opacity: 0.7;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     line-height: 1.5;
 }
 
@@ -77,11 +77,11 @@ h2 {
     font-size: 20px;
 }
 
-h3 {
+h3, dt {
     font-size: 18px;
 }
 
-h4, dt {
+h4 {
     font-size: 16px;
 }
 
@@ -89,22 +89,17 @@ h5 {
     font-size: 14px;
 }
 
-h6 {
-    font-size: 12px;
-}
-
 ul, ol, dl {
     padding: 0;
 }
 
-li {
-    margin-bottom: 10px;
+p, span, dt, dd, main li:last-child {
+    margin-bottom: 20px;
     line-height: 1.5;
 }
 
-p, span, dt, dd, main li:last-child {
+p.mb-15, li.mb-15 {
     margin-bottom: 15px;
-    line-height: 1.5;
 }
 
 ul li {
@@ -115,22 +110,13 @@ ol li {
     list-style-type: decimal;
 }
 
+li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
 b, strong {
     font-weight: bold;
-}
-
-span.sup-parent {
-    position: relative; 
-    display: inline-block;
-    margin-right: 6px;
-}
-
-sup {
-    position: absolute;
-    top: -1px;
-    font-size: 11px;
-    font-weight: bold;
-    margin-right: 2px;
 }
 
 abbr {
@@ -145,7 +131,7 @@ img {
     max-width: 100%;
 }
 
-button, input {
+button, input  {
     border: none;
     outline: none;
     background-color: inherit;
@@ -185,96 +171,98 @@ header {
     background-color: var(--header-bgc);
 }
 
-
 header div.linha {
+    min-height: 44px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 header div.linha a#logotipo {
     color: var(--primary-color);
-    font-size: 22px;
+    font-size: 20px;
 }
 
-header div.linha button.partilhar {
-    border-radius: 40px;
-    padding: 4px 8px;
+div.menu-pontinhos {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-header div.linha button.partilhar:active {
-    background-color: var(--placeholder-color);
-}
-
-@media screen and (min-width: 1024px) {
-    header div.linha button.partilhar {
-        display: none;
+@media screen and (max-width: 425px) {
+    header div.linha a#logotipo {
+        font-size: 17.5px;
     }
+
+    div.menu-pontinhos {
+        margin-right: -13px;
+    }
+}
+
+@media screen and (min-width: 1245px) {
+    div.menu-pontinhos {
+        margin-right: -13px;
+    }
+}
+
+div.menu-pontinhos:active {
+    opacity: 0.7;
+}
+
+div.menu-pontinhos > div {
+    width: 4px;
+    height: 4px;
+    margin: 1.5px 0;
+    background-color: var(--yt);
+    border-radius: 8px;
+    transition-duration: 150ms;
+}
+
+div.menu-pontinhos:hover div {
+    background-color: var(--primary-color);
 }
 
 nav.menu-principal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    max-width: 380px;
+    background-color: var(--yt);
+    box-shadow: 0 0 10px var(--gray-a); 
+    border-radius: 2px;
     width: 100%;
+    display: none;
 }
 
-@media screen and (min-width: 1440px) {
-    nav {
-        max-width: 1245px;
-        margin: auto;
-    }
-}
-
-nav.menu-principal ul {
-    display: flex;
-}
-
-nav.menu-principal ul li {
-    flex: 1;
-    text-align: center;
-    margin: 0;
-    list-style: none;
-}
-
-nav.menu-principal a {
-    flex: 1;
+nav.menu-principal.on {
     display: block;
-    min-height: 100%;
-    padding: 5px;
-    text-align: center;
-    color: var(--gray-a);
+    overflow: initial;
+}
+
+nav.menu-principal li {
+    display: flex;
+    margin: 0;
+}
+
+nav.menu-principal li * {
+    flex: 1;
+    padding: 10px;
+    text-align: left;
+    color: var(--blc-text-color) !important;
+    font-size: 15px;
+    min-height: 42px;
+    cursor: pointer;
+}
+
+nav.menu-principal li:hover {
     background-color: var(--gray-e);
 }
-
-@media screen and (min-width: 1024px) {
-    nav.menu-principal a {
-        font-size: 16px;
-    }
-}
-
-nav.menu-principal a:hover {
-    background-color: var(--gray-d);
-    color: var(--blc-text-color);
-}
-
-nav.menu-principal a.current {
-    background-color: var(--yt);
-    color: var(--blc-text-color);
-    font-weight: bold;
-}
-
-@media screen and (max-width: 375px) {
-    nav.menu-principal li:first-child a.current {
-        border-left: 1px solid var(--border-color);
-    }
-    
-    nav.menu-principal li:last-child a.current {
-        border-right: 1px solid var(--border-color);
-    }
-}
-
-nav.menu-principal a.current:hover {
-    background-color: var(--yt);
-}
-
 /* MAIN  */ 
 main.linha {
     flex: 1;
@@ -324,16 +312,6 @@ div.doseador {
     }
 }
 
-div.doseador h1 {
-    text-align: center;
-}
-
-@media screen and (max-width: 355px) {
-    div.doseador h1 {
-        font-size: 19px;
-    }   
-}
-
 div.doseador > div {
     min-height: 35px;
     border: 1px solid var(--border-color);
@@ -341,6 +319,10 @@ div.doseador > div {
     display: flex;
     align-items: center;
     border-radius: 4px;
+}
+
+div.doseador div.campo-de-peso {
+    margin-top: 0;
 }
 
 div.doseador div.campo-de-farmaco {
@@ -599,41 +581,7 @@ p.msg-de-validacao-de-peso.on {
     border-top: 1px solid var(--alert-text-border);
 }
 
-table {
-    width: 281px;
-    table-layout: fixed;
-    border: 1px solid var(--gray-c);
-    background-color: var(--gray-light);
-    margin: 0 auto;
-    font-size: 15px;
-    text-align: center;
-    border-collapse: collapse;
-}
-
-article table {
-    margin: 0 0 15px 0;
-}
-
-table th, table td {
-    line-height: 1.5;
-}
-
-table th {
-    background-color: var(--gray-d);
-}
-
-table td {  
-    font-weight: bold;
-}
-
-table tr th:first-child, 
-table tr td:first-child {
-    border-right: 1px solid var(--gray-c);
-}
-
-table tr.l3 {
-    border: 1px solid var(--gray-c);
-}
+/* ARTIGOS */
 
 article {
     background-color: var(--yt);
@@ -641,6 +589,8 @@ article {
     border-top: thin solid var(--gray-d);
     padding: 20px 4%;
 }
+
+
 
 @media screen and (min-width: 1024px) {
     article {
@@ -671,7 +621,6 @@ article {
     }
 }
 
-
 @media screen and (max-width: 1023px) {
     article section {
         max-width: 700px;
@@ -683,54 +632,53 @@ article ul, article ol {
     padding-left: 6%;
 }
 
-article ol li::marker {
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color:  var(--gray-d);
+}
+
+th, td {
+    border: 1px solid var(--yt);
+    padding: 5px;
+    text-align: left;
+    line-height: 1.4;
+}
+
+th {
+    padding: 10px 5px;
+    background-color: var(--gray-a);
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: none;
+}
+
+tbody tr:first-child td {
+    border-top: none;
+}
+
+td.y-center {
+    vertical-align: middle;
+}
+
+tfoot td {
+    font-style: italic;
+    background-color: var(--gray-c);
+}
+
+tfoot td span, 
+tfoot td li {
+    line-height: 1.4 !important;
+    margin-bottom: 10px;
+}
+
+tfoot td span {
     font-weight: bold;
 }
 
-article li table {
-    margin-top: 10px;
-}
-
-article ol.sublista li {
-    list-style: none;
-    font-style: italic;
-}
-
-article ol.sublista li::before {
-    padding-right: 4px;
-    margin-left: -5%;
-    font-weight: bold;
-    font-style: italic;
-}
-
-article ol.sublista li:first-child::before {
-    content: "3.1.";
-}
-
-article ol.sublista li.last-child::before {
-    content: "3.2.";
-}
-
-article div.exemplo table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media screen and (min-width: 1024px) {
-    article div.exemplo {
-        display: grid;
-        grid-template-columns: 280px 1fr;
-        grid-column-gap: 5px;
-    }
-    article div.exemplo p.destaque.ex {
-        grid-column: 1/3;
-    }
-}
-
-section.criterios-de-tpc span.destaque {
-    display: block;
-    font-size: 13px;
-    margin-top: 10px;
+tfoot ul li:last-child {
+    margin-bottom: 0 ;
 }
 
 /* PROPAGANDA */
@@ -830,7 +778,7 @@ div.description span.visitar {
     text-align: center;
     border-radius: 5px;
     margin: 0;
-    box-shadow: 0 0 8px var(--gray);
+    box-shadow: 0 4px 8px var(--gray-a);
     border: thin solid var(--yt-text-color);
 }
 
