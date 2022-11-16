@@ -228,40 +228,69 @@ div.menu-pontinhos:hover div {
 }
 
 nav.menu-principal {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
+    position: fixed;
+    top: 2px;
+    right: -300px;
+    width: 90vw;
     max-width: 380px;
     background-color: var(--yt);
     box-shadow: 0 0 10px var(--gray-a); 
-    border-radius: 2px;
-    width: 100%;
-    display: none;
+    border-radius: 4px;
+    visibility: hidden;
+    transition-duration: 100ms;
 }
 
 nav.menu-principal.on {
-    display: block;
-    overflow: initial;
+    right: 4px;
+    visibility: visible;
 }
 
-nav.menu-principal li {
+nav.menu-principal ul {
+    position: relative;
+}
+
+nav.menu-principal ul svg {
+    position: absolute;
+    bottom: 10.5px;
+    left: 9px;
+}
+
+nav.menu-principal ul svg.download {
+    top: 12px;
+}
+
+nav.menu-principal ul svg.share {
+    bottom: 10.5px;
+}
+
+nav.menu-principal ul li {
     display: flex;
     margin: 0;
 }
 
 nav.menu-principal li * {
     flex: 1;
-    padding: 10px;
+    padding: 10px 10px 10px 40px;
     text-align: left;
     color: var(--blc-text-color) !important;
-    font-size: 15px;
+    font-size: 13.5px;
     min-height: 42px;
     cursor: pointer;
 }
 
 nav.menu-principal li:hover {
     background-color: var(--gray-e);
+}
+
+nav.menu-principal li button {
+    border-top: thin solid var(--gray-d)
+}
+
+@media screen and (min-width: 1024px) {
+    nav.menu-principal ul svg.share,
+    nav.menu-principal li button {
+        display: none;
+    }
 }
 /* MAIN  */ 
 main.linha {
@@ -479,12 +508,33 @@ ul.select li.selected {
     margin: 0;
     padding-top: 6.5px;
     padding-bottom: 6.5px;
+    max-width: calc(100vw - 99.53px);
+    overflow: hidden;
 }
 
-@media screen and (max-width: 345px) {
+@media screen and (min-width: 375px) {
     ul.select li.selected {
-        font-size: 13.5px;
+        max-width: 275.47px;
     }
+}
+
+ul.select.on li.selected {
+    max-width: initial;
+}
+
+ul.select li.selected span {
+    display: block;
+    margin: 0;
+    min-width: 360px;
+}
+
+ul.select li.placeholder span.desk {
+    min-width: initial;
+}
+
+
+ul.select.on li.selected span {
+    min-width: initial;
 }
 
 ul.select div.optgroup {

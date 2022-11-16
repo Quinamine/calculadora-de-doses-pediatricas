@@ -37,12 +37,12 @@ const doseador = {
 
     pesquisarFarmaco(query) {
         let queryToLowerCase = query.toLowerCase();
-        let farmacos = select.querySelectorAll("div.arvs li");
-        let titulos_dos_farmacos = select.querySelectorAll("div.arvs h3");
+        let farmacos = select.querySelectorAll("div.optgroup li");
+        let titulos_dos_farmacos = select.querySelectorAll("div.optgroup h3");
         
         // PESQUISA DIRECTAMENTE PELO NOME DO FÁRMACO
         for (const farmaco of farmacos) {
-            let farmacoInnerText = farmaco.textContent.toLowerCase();
+            let farmacoInnerText = farmaco.querySelector("span").textContent.toLowerCase();
  
             if(!farmacoInnerText.includes(queryToLowerCase)) {
                 farmaco.classList.add("hide");
@@ -70,69 +70,21 @@ const doseador = {
 }
 
 const menu = {
-    mostrarArtigoRelacionadoAaba(aba) {
-        const artigos = document.querySelectorAll("article section");
-        const artigoRelacionado = aba.dataset.artigorelacionado;
-        let titulo_do_doseador = document.querySelector(".doseador h1");
+    abrir() {
+        document.querySelector("nav.menu-principal").classList.add("on");
+    }, 
 
-        for (let i = 0; i < abas_do_menu.length; i++) {
-            abas_do_menu[i].classList.remove("current");
-            artigos[i].classList.remove("on");
-
-            if(artigos[i].matches(`.${artigoRelacionado}`)) {
-                artigos[i].classList.add("on");
-            }
-        }
-        aba.classList.add("current");
-        titulo_do_doseador.textContent = aba.dataset.titulodaaba;
-        document.title = aba.dataset.titulodaaba + " - Tarv Pediátrico";
-    },
-
-    mostrarFarmacosRelacionadosAaba(aba) {
-        const gruposDeFarmacos = document.querySelectorAll("div.optgroup");
-        const GrupoDeFarmacosRelacionadosAaba =  document.querySelectorAll(`div.optgroup.${aba.dataset.for}`);
-
-        for (const grupo of gruposDeFarmacos) {
-            grupo.classList.add("hide");
-        }
-        // Looping por optgroup.arvs ser um nodelist
-        for (const grupo of GrupoDeFarmacosRelacionadosAaba) {
-            grupo.classList.remove("hide");
-        }
-            
-        const elementosRelacionados = document.querySelectorAll("label.arv, li.placeholder, div.caixa-de-pesquisa");
-        
-        if(aba.dataset.for !== "arvs") {
-            elementosRelacionados[0].innerHTML = "Fármaco:";
-            elementosRelacionados[1].classList.add("hide");
-            elementosRelacionados[2].classList.add("hide");
-        } else {
-            elementosRelacionados[0].innerHTML = "ARV:&nbsp;";
-            elementosRelacionados[1].classList.remove("hide");
-            elementosRelacionados[2].classList.remove("hide");
-        }
-
-        let optionDefault = document.querySelector(`[data-nome=${aba.dataset.optiondefault}]`);
-        doseador.selecionarFarmaco(optionDefault);
+    fechar() {
+        document.querySelector("nav.menu-principal").classList.remove("on");
     }
 }
 
-let abas_do_menu,
-campoFarmaco,
+let campoFarmaco,
 select, selectSrc, selectOptions, expansoresDeSelect;
-window.addEventListener("load", () => {
-    abas_do_menu = document.querySelectorAll(".menu-principal a");
-    
+window.addEventListener("load", () => { 
     // INVOCAÇÃO 
-    abas_do_menu.forEach ( aba => {
-        aba.addEventListener("click", () => {
-            menu.mostrarArtigoRelacionadoAaba(aba);
-            menu.mostrarFarmacosRelacionadosAaba(aba);
-
-            // Para resetar o input.value e os resultados da pesquisa da aba do Doseador
-            menu.fecharSelect();
-        })
-    })
+    const menuPontinhos = document.querySelector("div.menu-pontinhos");
+    menuPontinhos.addEventListener("click", () => menu.abrir());
 
     // DOSEADOR 
     campoFarmaco = document.querySelector("div.campo-de-farmaco");
@@ -172,9 +124,9 @@ window.addEventListener("load", () => {
 
     // PARTILHAR
     let conteudo = {
-        title: "Doseador de Antirretrovirais",
-        text: "Calcula automaticamente a dose de acordo com o peso, a posologia e o número de comprimidos a dispensar dos antirretrovirais e dos fármacos usados na profilaxia contra infecções oportunistas.",
-        url: "https://www.quinamine.github.io/tarv-pediatrico/index.html"
+        title: "Calculadora de Doses Pediátricas",
+        text: "É um serviço online gratuito que, com base no peso, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica para pacientes pediátricos. Tem como referência o Formulário Nacional de Medicamentos - 5ª Edição, 2007.</p>",
+        url: "https://www.quinamine.github.io/calculadora-de-doses-pediatricas/index.html"
     }
 
     const btnPartilhar = document.querySelector("button.partilhar");
@@ -182,7 +134,7 @@ window.addEventListener("load", () => {
         try {
             navigator.share(conteudo)
             .then(() => {
-                console.log("Endereço do Doseador partilhado com sucesso.");
+                console.log("Endereço da Calculadora partilhado com sucesso.");
             })
             .catch((erro) => {
                 console.log(`Não foi possível partilhar devido ao erro: ${erro}.`);
@@ -195,11 +147,14 @@ window.addEventListener("load", () => {
 
 
 
-// EVENTO DE FECHAMENTO DO SELECT 
+// EVENTO DE FECHAMENTO DO SELECT E DO MENU
 window.addEventListener("click", event => {
-   
+    // Fechar Menu
+    if(!event.target.matches(".menu-pontinhos") && !event.target.matches(".dot")) {
+        menu.fechar();
+    }
+    // Fechar Select
     const selectChildren = campoFarmaco.querySelectorAll("*");
-   
     let numChildrenClicked = 0;
     for (const child of selectChildren) {
         if(child === event.target) {

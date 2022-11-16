@@ -6,14 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calculadora de Doses Pediátricas</title>
         <meta name="robots" content="index, follow"/>
-        <meta name="description" content="Calcula automaticamente doses terapêuticas dos medicamentos mais usuais na prática clínica com base no Formulário Nacional de Medicamentos, bastando o usuário inserir o peso e escolher o fármaco do qual pretende calcular a dose." /> 
+        <meta name="description" content="Serviço online gratuito que, com base no peso, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica para pacientes pediátricos. Tem como referência o Formulário Nacional de Medicamentos - 5ª Edição, 2007." /> 
         <meta name="keywords" content="Calculadora de Doses Pediátricas, Dosagem de Medicamentos." />
         <meta name="author" content="Adérito Félix Quinamine" />
 
         <!-- PARTILHA NAS REDES SOCIAIS -->
         <meta property="og:url" content="https://www.quinamine.github.io/calculadora-de-doses-pediatricas/index.html"/>
         <meta property="og:title" content="Calculadora de Doses Pediátricas" />
-        <meta property="og:description" content="Calcula automaticamente doses terapêuticas dos medicamentos mais usuais na prática clínica com base no Formulário Nacional de Medicamentos, bastando o usuário inserir o peso e escolher o fármaco do qual pretende calcular a dose." />
+        <meta property="og:description" content="serviço online gratuito que, com base no peso, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica para pacientes pediátricos. Tem como referência o Formulário Nacional de Medicamentos - 5ª Edição, 2007." />
         <meta property="og:image" content="https://www.quinamine.github.io/calculadora-de-doses-pediatricas/imagens/calculadora-de-doses.jpg">
        
         <!-- DESIGN -->
@@ -33,21 +33,43 @@
             <div class="linha">
                 <a href="index.html" id="logotipo">Calculadora de Doses Pediátricas</a>
         
-                <nav class="menu-principal">
-                    <ul>    
-                        <li><a href="files/formulario-nacional-de-medicamentos.pdf" download="Formulário Nacional de Medicamentos">Baixar Formulário Nacional de Medicamentos</a></li>
+                <nav class="menu-principal on">
+                    <ul>
+                         <!-- Baixar -->
+                         <svg style="width: 16px; height: 16px;" class="download">
+                            <line x1="50%" x2="50%" y1="0%" y2="80%" stroke-width="1px" stroke="var(--blc-text-color)"></line>
+                            <line x1="0" x2="50%" y1="40%" y2="80%" stroke-width="1px" stroke="var(--blc-text-color)"></line>
+                            <line x1="100%" x2="50%" y1="40%" y2="80%" stroke-width="1px" stroke="var(--blc-text-color)"></line>
+
+                            <line x1="0" x2="100%" y1="100%" y2="100%" stroke-width="1px" stroke="var(--fullblack)"></line>
+                        </svg>    
                         <li>
-                            <button class="mobile">
-                                Partilhar Calculadora
-                            </button>
+                            <a href="files/formulario-nacional-de-medicamentos.pdf" download="Formulário Nacional de Medicamentos">Baixar Formulário Nacional de Medicamentos</a>
+                        </li>
+
+                        <!-- Partilhar -->
+                        <svg style="width: 25px; height: 20px;" class="share">
+                            <circle r="2.5" cx="5" cy="50%" fill="none" stroke-width="1px" stroke="var(--blc-text-color)"></circle>
+    
+                            <circle r="2.5" cx="20" cy="5" fill="none" stroke-width="1px" stroke="var(--blc-text-color)"></circle>
+                            
+                            <circle r="2.5" cx="20" cy="15" fill="none" stroke-width="1px" stroke="var(--blc-text-color)"></circle>
+                            
+                            <line x1="7.5" x2="17.5" y1="9" y2="5" stroke-width="1px" stroke="var(--blc-text-color)"></line>
+    
+                            <line x1="7.5" x2="17.5" y1="11" y2="15" stroke-width="1px" stroke="var(--blc-text-color)"></line>    
+                        </svg>
+
+                        <li>
+                            <button class="partilhar mobile">Partilhar Calculadora</button>
                         </li>  
                     </ul>
                </nav>
 
                <div class="menu-pontinhos">
-                   <div></div>
-                   <div></div>
-                   <div></div>
+                   <div class="dot"></div>
+                   <div class="dot"></div>
+                   <div class="dot"></div>
                </div>
             </div>                
         </header>
@@ -65,7 +87,7 @@
                 <div class="campo-de-farmaco pos-relative">                            
                     <label for="farmaco">Fármaco:</label>
                    
-                    <ul class="select on">
+                    <ul class="select">
                         <li class="placeholder arvs selected" data-nome="placeholder">
                             <span class="mobile">Toque</span> 
                             <span class="desk">Clique</span> 
@@ -84,75 +106,113 @@
                         </div>
                         <div class="optgroup penicilinas">
                             <h3>PENICILINAS</h3>                
-                            <li value="fenox-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Fenoximetil 250 mg/5 ml Susp.</li>
+                            <li value="fenox-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                                <span>Fenoximetil 250 mg/5 ml Susp.</span>
+                            </li>
 
-                            <li  value="benzatina" data-doseporkg="50000" data-dos="2400000"  data-pos="1" data-forma="inj-im" data-tipodose="parenteral">Penicilina Benzatínica 2.4 milhões U.I Inj.</li>
+                            <li  value="benzatina" data-doseporkg="50000" data-dos="2400000"  data-pos="1" data-forma="inj-im" data-tipodose="parenteral">
+                                <span>Penicilina Benzatínica 2.4 milhões U.I Inj.</span>
+                            </li>
 
-                            <li value="procaina" data-doseporkg="50000" data-dos="3000000" data-pos="1" data-forma="inj-im" data-tipodose="parenteral">Penicilina Procaína 3 milhões U.I Inj.</li>
+                            <li value="procaina" data-doseporkg="50000" data-dos="3000000" data-pos="1" data-forma="inj-im" data-tipodose="parenteral">
+                                <span>Penicilina Procaína 3 milhões U.I Inj.</span>
+                            </li>
 
-                            <li value="amoxicilina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp">Amoxicilina 250 mg/5 ml Susp.</li>
+                            <li value="amoxicilina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp">       
+                                <span>Amoxicilina 250 mg/5 ml Susp.</span>
+                            </li>
 
-                            <li value="clavamox-susp" data-doseporkg="50" data-dos="312.5" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Amoxicilina e Ácido Clavulânico 312.5 mg/5 ml Susp.</li>
+                            <li value="clavamox-susp" data-doseporkg="50" data-dos="312.5" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                                <span>Amoxicilina e Ácido Clavulânico 312.5 mg/5 ml Susp.</span>
+                            </li>
                         </div>
 
                         <div class="optgroup macrolidos">
                             <h3>MACRÓLIDOS</h3>
                             
-                            <li value="azitromicina" data-doseporkg="10" data-dos="250" data-pos="1" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Azitromicina 200 mg/5 ml Susp.</li>
+                            <li value="azitromicina" data-doseporkg="10" data-dos="250" data-pos="1" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                                <span>Azitromicina 200 mg/5 ml Susp.</span>
+                            </li>
 
-                            <li value="eritromicina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Eritromicina 250 mg/5 ml Susp.</li>
+                            <li value="eritromicina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                                <span>
+                                    Eritromicina 250 mg/5 ml Susp.
+                                </span>
+                            </li>
                         </div>
 
                         <div class="optgroup sulfamidas">
                             <h3>SULFAMIDAS</h3>
 
-                            <li value="ctz-susp" data-doseporkg="40" data-dos="240" data-pos="2" data-dil="5" data-forma="susp" data-tipodose="padrao" data-camporequired="idade">Cotrimoxazol 240 mg/5 ml Susp.</li>
+                            <li value="ctz-susp" data-doseporkg="40" data-dos="240" data-pos="2" data-dil="5" data-forma="susp" data-tipodose="padrao" data-camporequired="idade">
+                                <span>Cotrimoxazol 240 mg/5 ml Susp.</span>     
+                            </li>
                         </div>
 
                         <div class="optgroup anfenicois">
                             <h3>ANFENICÓIS</h3>
-                            <li value="cloranfenicol-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Cloranfenicol 250 mg/5 ml Susp.</li>
+                            <li value="cloranfenicol-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                                <span>Cloranfenicol 250 mg/5 ml Susp.</span>
+                            </li>
                         </div>
 
                         <div class="optgroup nitroimidazolicos">
                             <h3>NITROIMIDAZÓLICOS</h3>
                             
-                            <li value="metronidazol-susp" data-doseporkg="22.5" data-dos="200" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Metronidazol 200 mg/5 ml Susp.</li>
+                            <li value="metronidazol-susp" data-doseporkg="22.5" data-dos="200" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                                <span>Cloranfenicol 250 mg/5 ml Susp.</span>
+                            </li>
 
-                            <li value="metronidazol-susp-125" data-doseporkg="22.5" data-dos="125" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp" data-camporequired="peso">Metronidazol 125 mg/5 ml Susp.</li>
+                            <li value="metronidazol-susp-125" data-doseporkg="22.5" data-dos="125" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp" data-camporequired="peso">
+                                <span>Metronidazol 125 mg/5 ml Susp.</span>
+                            </li>
                         </div>
                         
                         <div class="optgroup anti-helmintos">
                             <h3>ANTI-HELMINTICOS</h3>
-                            <li value="mebendazol-100" data-dos="100" data-pos="2" data-forma="cp" data-tipodose="padrao">Mebendazol 100mg Comp.</li>
+                            <li value="mebendazol-100" data-dos="100" data-pos="2" data-forma="cp" data-tipodose="padrao">
+                                <span>Mebendazol 100mg Comp. </span>
+                            </li>
                         </div>
                         
                         <div class="optgroup anti-malaricos">
                             <h3>ANTI-MALÁRICOS</h3>
-                            <li value="al" data-dos="140"  data-pos="2" data-forma="cp" data-tipodose="padrao" data-camporequired="both">Arteméter+Lumefantrina 140 mg Comp.</li>
+                            <li value="al" data-dos="140"  data-pos="2" data-forma="cp" data-tipodose="padrao" data-camporequired="both">
+                                <span>Arteméter+Lumefantrina 140 mg Comp.</span>
+                            </li>
 
-                            <li value="quinina" data-doseporkg="30" data-dos="300" data-pos="3" data-forma="cp" data-tipodose="padrao" data-camporequired="both">Quinina 300 mg Comp.</li>
+                            <li value="quinina" data-doseporkg="30" data-dos="300" data-pos="3" data-forma="cp" data-tipodose="padrao" data-camporequired="both">
+                                <span>Quinina 300 mg Comp.</span>
+                            </li>
                         </div>
 
                         <div class="optgroup analgesicos">
                             <h3>ANALGÉSICOS-ANTIPIRÉTICOS E AINES</h3>
                             
                             <!--Dose de Paracetamol susp: 10mg/kg/dose ou 30mg/kg/dia-->
-                            <li value="paracetamol-susp" data-doseporkg="30" data-dos="120" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Paracetamol 120 mg/5 ml Susp.</li>
+                            <li value="paracetamol-susp" data-doseporkg="30" data-dos="120" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                                <span> Paracetamol 120 mg/5 ml Susp.</span>
+                            </li>
 
-                            <li value="ibuprofeno-susp" data-doseporkg="20" data-dos="100" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Ibuprofeno 100 mg/5 ml Susp.</li>
+                            <li value="ibuprofeno-susp" data-doseporkg="20" data-dos="100" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                                <span>Ibuprofeno 100 mg/5 ml Susp.</span>
+                            </li>
                         </div>
 
                         <div class="optgroup antiemeticos">
                             <h3>ANTIEMÉTICOS</h3>
                            
-                            <li value="metoclopramida-susp" data-doseporkg="0.5" data-dos="5" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Metoclopramida 5 mg/5 .ml Xpe.</li>
+                            <li value="metoclopramida-susp" data-doseporkg="0.5" data-dos="5" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                                <span>Metoclopramida 5 mg/5 .ml Xpe.<span>
+                            </li>
                         </div>
 
                         <div class="optgroup anti-helmintos">
                             <h3>ANTI-HISTAMÍNICOS</h3>
                             
-                            <li value="clorfeniramina-susp" data-doseporkg="0.4" data-dos="2" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">Clorfeniramina 2 mg/5 ml Xpe.</li>
+                            <li value="clorfeniramina-susp" data-doseporkg="0.4" data-dos="2" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                                <span> Clorfeniramina 2 mg/5 ml Xpe.</span>
+                            </li>
                         </div>            
                     </ul>
                     <button title="Mostrar lista de fármacos" class="btn-expandir-select">
@@ -179,7 +239,7 @@
                 <section class="instrucoes">
                     <h2>Sobre a Calculadora de Doses Pediátricas</h2>
 
-                    <p>A <b>Calculadora de Doses Pediátricas</b> é um serviço online gratuito que, com base no peso, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica para pacientes pediátricos. <strong>Tem como referência o Formulário Nacional de Medicamentos - 5ª edição.</strong></p>
+                    <p>A <b>Calculadora de Doses Pediátricas</b> é um serviço online gratuito que, com base no peso, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica para pacientes pediátricos. <strong>Tem como referência o Formulário Nacional de Medicamentos - 5ª Edição, 2007.</strong></p>
 
                     <p class="mb-15">A Calculadora está basicamente estruturada da seguinte forma:</p>
 
