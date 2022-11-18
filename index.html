@@ -91,9 +91,12 @@
                    
                     <ul class="select">
                         <li class="placeholder arvs selected" data-nome="placeholder">
-                            <span class="mobile">Toque</span> 
-                            <span class="desk">Clique</span> 
-                            aqui para ver os fármacos
+                            <span>
+                                <em class="mobile">Toque</em> 
+                                <em class="desk">Clique</em> 
+                                aqui para ver os fármacos
+                            </span>
+                            
                         </li>
 
                         <div class="caixa-de-pesquisa">
@@ -108,23 +111,23 @@
                         </div>
                         <div class="optgroup penicilinas">
                             <h3>PENICILINAS</h3>                
-                            <li data-nome="fenox-susp" data-doseporkg="50" data-dos="250" data-pos="4" data-dil="5" data-forma="susp">
+                            <li data-nome="fenox-susp" data-doseporkg="50" data-dos="250" data-pos="4" data-dil="5" data-forma="susp" data-dosemax="500">
                                 <span>Fenoximetil 250 mg/5 ml Susp.</span>
                             </li>
 
-                            <li  data-nome="benzatina" data-doseporkg="50000" data-dos="2400000"  data-pos="1" data-forma="inj-im">
-                                <span>Penicilina Benzatínica 2.4 milhões U.I Inj.</span>
+                            <li  data-nome="benzatina" data-doseporkg="50000" data-dos="2400000"  data-pos="1" data-forma="inj-im" data-dosemax="2400000">
+                                <span>Penicilina Benzatínica 2.400.000 U.I Inj.</span>
                             </li>
 
-                            <li data-nome="procaina" data-doseporkg="50000" data-dos="3000000" data-pos="1" data-forma="inj-im">
-                                <span>Penicilina Procaína 3 milhões U.I Inj.</span>
+                            <li data-nome="procaina" data-doseporkg="50000" data-dos="3000000" data-pos="1" data-forma="inj-im" data-dosemax="1200000">
+                                <span>Penicilina Procaína 3.000.000 U.I Inj.</span>
                             </li>
 
-                            <li data-nome="amoxicilina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp">       
+                            <li data-nome="amoxicilina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-dosemax="500">       
                                 <span>Amoxicilina 250 mg/5 ml Susp.</span>
                             </li>
 
-                            <li data-nome="clavamox-susp" data-doseporkg="50" data-dos="312.5" data-pos="3" data-dil="5" data-forma="susp">
+                            <li data-nome="clavamox-susp" data-doseporkg="50" data-dos="312.5" data-pos="3" data-dil="5" data-forma="susp" data-dosemax="625">
                                 <span>Amoxicilina e Ácido Clavulânico 312.5 mg/5 ml Susp.</span>
                             </li>
                         </div>
@@ -132,11 +135,11 @@
                         <div class="optgroup macrolidos">
                             <h3>MACRÓLIDOS</h3>
                             
-                            <li data-nome="azitromicina" data-doseporkg="10" data-dos="250" data-pos="1" data-dil="5" data-forma="susp">
+                            <li data-nome="azitromicina" data-doseporkg="10" data-dos="250" data-pos="1" data-dil="5" data-forma="susp" data-dosemax="500">
                                 <span>Azitromicina 200 mg/5 ml Susp.</span>
                             </li>
 
-                            <li data-nome="eritromicina-susp" data-doseporkg="50" data-dos="250" data-pos="4" data-dil="5" data-forma="susp">
+                            <li data-nome="eritromicina-susp" data-doseporkg="50" data-dos="250" data-pos="4" data-dil="5" data-forma="susp" data-dosemax="500">
                                 <span>
                                     Eritromicina 250 mg/5 ml Susp.
                                 </span>
@@ -147,14 +150,14 @@
                             <h3>SULFAMIDAS</h3>
 
                             <!-- 20 mg/kg/dose -->
-                            <li data-nome="ctz-susp" data-doseporkg="40" data-dos="240" data-pos="2" data-dil="5" data-forma="susp">
+                            <li data-nome="ctz-susp" data-doseporkg="40" data-dos="240" data-pos="2" data-dil="5" data-forma="susp" data-dosemax="960">
                                 <span>Cotrimoxazol 240 mg/5 ml Susp.</span>     
                             </li>
                         </div>
 
                         <div class="optgroup anfenicois">
                             <h3>ANFENICÓIS</h3>
-                            <li data-nome="cloranfenicol-susp" data-doseporkg="50" data-dos="250" data-pos="4" data-dil="5" data-forma="susp">
+                            <li data-nome="cloranfenicol-susp" data-doseporkg="50" data-dos="250" data-pos="4" data-dil="5" data-forma="susp" data-dosemax="500">
                                 <span>Cloranfenicol 250 mg/5 ml Susp.</span>
                             </li>
                         </div>
@@ -162,29 +165,29 @@
                         <div class="optgroup nitroimidazolicos">
                             <h3>NITROIMIDAZÓLICOS</h3>
 
-                            <li data-nome="metronidazol-susp-125" data-doseporkg="22.5" data-dos="125" data-pos="3" data-dil="5" data-forma="susp">
+                            <li data-nome="metronidazol-susp-125" data-doseporkg="22.5" data-dos="125" data-pos="3" data-dil="5" data-forma="susp" data-dosemax="500">
                                 <span>Metronidazol 125 mg/5 ml Susp.</span>
                             </li>
 
-                            <li data-nome="metronidazol-susp" data-doseporkg="22.5" data-dos="200" data-pos="3" data-dil="5" data-forma="susp">
+                            <li data-nome="metronidazol-susp" data-doseporkg="22.5" data-dos="200" data-pos="3" data-dil="5" data-forma="susp" data-dosemax="500">
                                 <span>Metronidazol 200 mg/5 ml Susp.</span>
                             </li>
                         </div>
                         
                         <div class="optgroup anti-helmintos">
                             <h3>ANTI-HELMINTICOS</h3>
-                            <li data-nome="mebendazol-100" data-dos="100" data-pos="2" data-forma="cp" data-tipodose="padrao">
+                            <li data-nome="mebendazol-100" data-dos="100" data-pos="2" data-forma="cp(s)">
                                 <span>Mebendazol 100mg Comp. </span>
                             </li>
                         </div>
                         
                         <div class="optgroup anti-malaricos">
                             <h3>ANTI-MALÁRICOS</h3>
-                            <li data-nome="al" data-dos="140"  data-pos="2" data-forma="cp">
+                            <li data-nome="al" data-dos="140"  data-pos="2" data-forma="cp(s)">
                                 <span>Arteméter+Lumefantrina 140 mg Comp.</span>
                             </li>
 
-                            <li data-nome="quinina" data-doseporkg="30" data-dos="300" data-pos="3" data-forma="cp">
+                            <li data-nome="quinina" data-doseporkg="30" data-dos="300" data-pos="3" data-forma="cp(s)">
                                 <span>Quinina 300 mg Comp.</span>
                             </li>
                         </div>
@@ -193,11 +196,11 @@
                             <h3>ANALGÉSICOS-ANTIPIRÉTICOS E AINES</h3>
                             
                             <!--Dose de Paracetamol susp: 10mg/kg/dose ou 30mg/kg/dia-->
-                            <li data-nome="paracetamol-susp" data-doseporkg="30" data-dos="120" data-pos="3" data-dil="5" data-forma="susp">
+                            <li data-nome="paracetamol-susp" data-doseporkg="30" data-dos="120" data-pos="3" data-dil="5" data-forma="susp" data-dosemax="500">
                                 <span>Paracetamol 120 mg/5 ml Susp.</span>
                             </li>
 
-                            <li data-nome="ibuprofeno-susp" data-doseporkg="20" data-dos="100" data-pos="3" data-dil="5" data-forma="susp">
+                            <li data-nome="ibuprofeno-susp" data-doseporkg="20" data-dos="100" data-pos="3" data-dil="5" data-forma="susp" data-dosemax="400">
                                 <span>Ibuprofeno 100 mg/5 ml Susp.</span>
                             </li>
                         </div>
@@ -205,7 +208,7 @@
                         <div class="optgroup antiemeticos">
                             <h3>ANTIEMÉTICOS</h3>
                            
-                            <li data-nome="metoclopramida-susp" data-doseporkg="0.5" data-dos="5" data-pos="3" data-dil="5" data-forma="susp">
+                            <li data-nome="metoclopramida-susp" data-doseporkg="0.5" data-dos="5" data-pos="3" data-dil="5" data-forma="susp" data-dosemax="10">
                                 <span>Metoclopramida 5 mg/5 ml Xpe.<span>
                             </li>
                         </div>
@@ -213,7 +216,7 @@
                         <div class="optgroup anti-helmintos">
                             <h3>ANTI-HISTAMÍNICOS</h3>
                             
-                            <li data-nome="clorfeniramina-susp" data-doseporkg="0.4" data-dos="2" data-pos="3" data-dil="5" data-forma="susp">
+                            <li data-nome="clorfeniramina-susp" data-doseporkg="0.4" data-dos="2" data-pos="3" data-dil="5" data-forma="susp" data-dosemax="4">
                                 <span>Clorfeniramina 2 mg/5 ml Xpe.</span>
                             </li>
                         </div>            
@@ -247,13 +250,13 @@
                     <p class="mb-15">A Calculadora está basicamente estruturada da seguinte forma:</p>
 
                     <ul>
-                        <li>Um campo de <b>Peso</b>, para inserir o peso em kg da criança para a qual o Profissional de Saúde pretende calcular a dose;</li>
+                        <li>Um campo de <b>Peso</b>, para inserir o peso em quilograma da criança para a qual o Profissional de Saúde pretende calcular a dose;</li>
 
                         <li>Um campo de <b>Fármaco</b>, com a lista dos fármacos. Aqui o usuário (Profissional de Saúde) escolhe o fármaco do qual pretende calcular a dose. 
 
                         </li>
 
-                        <li><b>Dose e Posologia:</b> secção de saída em que são mostradas automaticamente a dose e a posologia do antirretroviral selecionado de acordo com o peso inserido.</li>
+                        <li><b>Dose e Posologia:</b> secção de saída em que são mostradas automaticamente a dose e a posologia do fármaco selecionado de acordo com o peso inserido.</li>
 
                         <li><b>Notas:</b> secção de saída em que são mostradas informações importantes relacionadas ao fármaco selecionado.</li>
                     </ul>
@@ -304,7 +307,7 @@
                                 <td>50 mg/kg/dia divididos em 4 tomas.</td>
                             </tr>
                             <tr>
-                                <td>Metronidazol 125 mg/5 ml Susp.</td>
+                                <td>Metronidazol 125 mg/5 ml Susp. e <br/> Metronidazol 200 mg/5 ml Susp.</td>
                                 <td>7.5 mg/kg/dose de 8 em 8 horas.</td>
                             </tr>
                             <tr>
@@ -453,6 +456,10 @@
             <div class="linha">
                 <p>
                     Desenvolvido por: <a href="quinamine.github.io/aderito-felix-quinamine/index.html" target="_blank">Adérito Félix Quinamine</a> &copy;&nbsp;Calculadora de Doses Pediátricas -&nbsp;Todos&nbsp;os&nbsp;direitos reservados
+                </p>
+
+                <p>
+                    Disponível desde: 28/08/2021. Última actualização: 11/2022.
                 </p>
             </div>
         </footer>

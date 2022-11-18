@@ -169,6 +169,7 @@ window.addEventListener("click", event => {
 });
 
 window.addEventListener("scroll", () => {
+    menu.fechar();
     if(window.innerWidth > 1023) {
         doseador.fecharSelect();
         document.querySelector(".campo-de-farmaco").classList.remove("focus");

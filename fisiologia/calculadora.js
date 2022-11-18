@@ -1,27 +1,26 @@
 "use strict";
 
 class Calculadora {
-    constructor(peso, farmaco, doseporkg, dosagem, diluicao, posologia) {
+    constructor(peso, farmaco, dosagem, diluicao, formaFarmaceutica, doseporkg, dosemaxima, posologia) {
         this.peso = peso;
         this.farmaco = farmaco;
-        this.doseporkg = doseporkg;
         this.dosagem = dosagem;
         this.diluicao = diluicao;
-        this.posologia = posologia;
+        this.formaFarmaceutica = formaFarmaceutica;
+        this.doseporkg = doseporkg;
+        this.dosemaxima = dosemaxima;      
+        this.posologia = posologia;   
     }
 
     get retornarFormafarmaceutica(){
 		let forma;
-        if(this.farmaco === "benzatina" || this.farmaco ==="procaina") {
-            forma = "U.I";
-        } 
-        else if (this.farmaco === "al" || 
-            this.farmaco ==="quinina" || 
-            this.farmaco ==="mebendazol-100") {
-                forma = "cp(s)";
-        } 
-        else {
+        
+        if(this.formaFarmaceutica === "susp") {
             forma = "ml";
+        } else if(this.formaFarmaceutica === "inj-im"){
+            forma = "U.I via I.M profunda";
+        } else {
+            forma = this.formaFarmaceutica;
         }
 		return forma;
 	}
@@ -29,10 +28,7 @@ class Calculadora {
     get retornarPosologia() {
         let pos;
         
-        if(this.farmaco=="benzatina") {
-			pos = "dose única (na Sífilis recente) ou uma dose por semana durante 3 semanas (na Sífilis tardia)";
-        } 
-        else if(this.posologia === "1") {
+        if(this.posologia === "1") {
 			pos = "dose única diária";
         } 
         else if(this.posologia === "2") {
@@ -68,7 +64,7 @@ class Calculadora {
         } 
 
         else if(this.farmaco === "cloranfenicol-susp") {
-            camposDoseEnota[1].innerHTML = `Sobretudo em crianças, reservar o uso do Cloranfenicol unicamente para quadros graves, que não tenham respondido a outros antibióticos ou quando há comprovação ou suspeita forte de se tratar de Febre Tifóide. Entre os efeitos adversos mais graves, inclui a <b>Síndrome de bebé cinzento</b>. Manifesta-se 2 a 9 dias após início do tratamento por distensão abdominal, vómitos, respiração anormal, cianose, letargia, seguida de colapso vasomotor, hipotermia e "<b>cianose cinzenta</b>". Aparece sobretudo em prematuros ou quando se administra o Cloranfenicol nas primeiras 2 semanas de vida. Pode ocorrer também em crianças até aos 2 anos. `; 
+            camposDoseEnota[1].innerHTML = `Sobretudo em crianças, reservar o uso do Cloranfenicol unicamente para quadros graves, que não tenham respondido a outros antibióticos ou quando há comprovação ou suspeita forte de se tratar de Febre Tifóide. Entre os efeitos adversos mais graves, inclui a <b>Síndrome de bebé cinzento</b>. Manifesta-se 2 a 9 dias após início do tratamento por <em>distensão abdominal, vómitos, respiração anormal, cianose, letargia, seguida de colapso vasomotor, hipotermia</em> e "<b>cianose cinzenta</b>". Aparece sobretudo em prematuros ou quando se administra o Cloranfenicol nas primeiras 2 semanas de vida. Pode ocorrer também em crianças até aos 2 anos. `; 
         } 
 
         else if(this.farmaco.includes("metronidazol")) {
@@ -89,7 +85,7 @@ class Calculadora {
         } 
         
         else if(this.farmaco === "ibuprofeno-susp") {
-            camposDoseEnota[1].innerHTML = `Associado à Zidovudina há um risco maior de toxicidade hematológica. A sua concentração plasmática é aumentada em associação com Ritonavir.`; 
+            camposDoseEnota[1].innerHTML = `Associado à Zidovudina, há um risco maior de toxicidade hematológica. A sua concentração plasmática é aumentada em associação com Ritonavir.`; 
         } 
 
         else {
@@ -99,28 +95,16 @@ class Calculadora {
 
     printarDose(dose) {
         camposDoseEnota[0].innerHTML = `${dose} ${this.retornarFormafarmaceutica} ${this.retornarPosologia}.`;
+
+        if(this.farmaco=="benzatina") {
+            camposDoseEnota[0].innerHTML = `${dose} ${this.retornarFormafarmaceutica} dose única (na Sífilis recente) ou ${dose} U.I por semana durante 3 semanas (na Sífilis tardia).`;
+        } 
     }
     
     calcularDose(){
-		let dosemg = this.doseporkg * this.peso / this.posologia;
-
-		// DOSES MÁXIMAS
-		if(this.farmaco === "clorfeniramina-susp" && dosemg >= 4){
-			dosemg = 4;
-		}
-		else if(this.farmaco === "clavamox-susp" && dosemg >= 625){
-			dosemg = 625;
-        }
-
-        else if (this.farmaco === "ctz-susp" && dosemg >= 960){
-            dosemg = 960; 
-        }
-
-       /* else if (this.farmaco !== "clavamox-susp" && this.farmaco !== "ctz-susp" && dosemg >= 500){
-            dosemg = 500;
-        }*/
-
-        else if(this.farmaco === "metoclopramida-susp"){
+        let dosemg = this.doseporkg * this.peso / this.posologia;
+        
+        if(this.farmaco === "metoclopramida-susp"){
 			if(this.peso < 10) {
                 dosemg = 1;
                 this.posologia = "2";
@@ -130,54 +114,46 @@ class Calculadora {
 			else if(this.peso <= 29){dosemg = 2.5;}
 			else if(this.peso <= 34){dosemg = 5;}
 			else {dosemg = 10;}
-        }		
-		
-		// CONVERSÃO DA DOSE DE MG PARA ML
-        let doseml = dosemg * this.diluicao / this.dosagem;	
-
-        if(this.farmaco === "benzatina" || this.farmaco === "procaina") {
-            doseml = dosemg.toLocaleString();
-        }
+        } 
         else if(this.farmaco === "al"){
-            let dose;
-
             if(this.peso<5){
                 this.mostrarNota();
                 return false;
             } 
-            else if(this.peso < 15) {dose = 1;} 
-            else if(this.peso < 25) {dose = 2;} 
-            else if(this.peso < 35) {dose = 3;} 
-            else {dose=4;}
-            
-            doseml = dose;
-        }       
+            else if(this.peso < 15) {dosemg = 1;} 
+            else if(this.peso < 25) {dosemg = 2;} 
+            else if(this.peso < 35) {dosemg = 3;} 
+            else {dosemg = 4;};
+        } 
         else if(this.farmaco === "quinina"){
-            let dose;
-
-            if(this.peso < 10){dose = "1/4";}
-            else if(this.peso <= 15){dose = "1/2";}
-            else if(this.peso <= 25){dose = "3/4";}
-            else if(this.peso <= 35){dose = 1;}
-            else if(this.peso > 35){dose = 2;}
-
-            doseml = dose;
+            if(this.peso < 10){dosemg = "1/4";}
+            else if(this.peso <= 15){dosemg = "1/2";}
+            else if(this.peso <= 25){dosemg = "3/4";}
+            else if(this.peso <= 35){dosemg = 1;}
+            else if(this.peso > 35){dosemg = 2;}
         }
         else if(this.farmaco === "mebendazol-100"){
-            let dose;
-
             if(this.peso < 20){
-                dose="1/2";
+                dosemg = "1/2";
             } else {
-                dose=1;
+                dosemg = 1;
             }
-            doseml = dose;
-        } 	
-        else {
-            doseml = doseml.toFixed(1);
-        }
+        } 
 
-        this.printarDose(doseml);
+		// DOSES MÁXIMAS
+		if( dosemg > this.dosemaxima){
+            dosemg = this.dosemaxima;
+		}
+
+        // CONVERSÃO DA DOSE DE MG PARA ML
+        if(this.retornarFormafarmaceutica === "ml") {
+            let doseml = dosemg * this.diluicao / this.dosagem;	
+            dosemg = doseml.toFixed(1);;
+        } else if (this.retornarFormafarmaceutica === "U.I via I.M profunda"){
+            dosemg = Number(dosemg).toLocaleString();
+        }
+        
+        this.printarDose(dosemg);
         this.mostrarNota();
     } 
 }
@@ -209,14 +185,16 @@ const objectoDarv = {
 
     instanciarClasse () {
         if(this.validarPeso()) {
-            let farmacoSelecionado, dosagem, diluicao, dosePorKg, posologia;
+            let farmacoSelecionado, dosagem, diluicao, formaFarmaceutica, dosePorKg, dosemaxima, posologia;
     
             for (const farmaco of farmacos) {
                 if(farmaco.matches(".selected")) {
                     farmacoSelecionado = farmaco.dataset.nome;
-                    dosePorKg = farmaco.dataset.doseporkg;
                     dosagem = farmaco.dataset.dos;
                     diluicao = farmaco.dataset.dil;
+                    formaFarmaceutica = farmaco.dataset.forma;
+                    dosePorKg = farmaco.dataset.doseporkg;
+                    dosemaxima = farmaco.dataset.dosemax;                   
                     posologia = farmaco.dataset.pos;
 
                     if(farmaco.matches(".placeholder")) {
@@ -224,7 +202,9 @@ const objectoDarv = {
                     }
                 } 
             }
-            const dose = new Calculadora(peso.value, farmacoSelecionado, dosePorKg, dosagem,diluicao, posologia);
+
+            // Parâmetros da classe: (peso, farmaco, dosagem, diluicao, formaFarmaceutica, doseporkg, dosemaxima, posologia)
+            const dose = new Calculadora(peso.value, farmacoSelecionado, dosagem, diluicao, formaFarmaceutica, dosePorKg, dosemaxima, posologia);
             dose.calcularDose();
     
             // Adicionar Padding ao 'p.recomendacao'  

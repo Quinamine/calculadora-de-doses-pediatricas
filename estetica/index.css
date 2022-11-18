@@ -120,6 +120,10 @@ b, strong {
     font-weight: bold;
 }
 
+em {
+    background-color: var(--gray-d);
+}
+
 abbr {
     text-decoration: none;
 }
@@ -196,7 +200,7 @@ div.menu-pontinhos {
 }
 
 @media screen and (max-width: 425px) {
-    header div.linha a#logotipo {
+    header a#logotipo h1 {
         font-size: 17.5px;
     }
 
@@ -232,6 +236,7 @@ nav.menu-principal {
     position: fixed;
     top: 2px;
     right: -300px;
+    z-index: 20;
     width: 90vw;
     max-width: 380px;
     background-color: var(--yt);
@@ -491,16 +496,20 @@ ul.select li.placeholder {
     color: var(--placeholder-color) !important;
 }
 
-ul.select li.placeholder span.desk {
+ul.select li.placeholder em {
+    background-color: inherit;
+}
+
+ul.select li.placeholder em.desk {
     display: none;
 }
 
 @media screen and (min-width: 1024px) {
-    ul.select li.placeholder span.desk {
+    ul.select li.placeholder em.desk {
         display: initial;
     }
 
-    ul.select li.placeholder span.mobile {
+    ul.select li.placeholder em.mobile {
         display: none;
     }
 }
@@ -531,7 +540,6 @@ ul.select li.selected span {
     min-width: 360px;
 }
 
-ul.select li.placeholder span,
 ul.select.on li.selected span {
     display: initial;
     min-width: initial;
@@ -614,10 +622,6 @@ ul.select.on div.optgroup li:hover {
 }
 
 /* Classes Manipuláveis com JS */
-.hide {
-    display: none !important;
-}
-
 p.msg-de-validacao-de-peso {
     margin: 8px 0 0 0;
     transition-duration: 150ms;
@@ -829,7 +833,6 @@ div.description span.visitar {
     border-radius: 5px;
     margin: 0;
     box-shadow: 0 3px 8px var(--gray-a);
-    border: thin solid var(--yt-text-color);
 }
 
 div.description span.visitar:hover {
@@ -841,6 +844,11 @@ footer {
     background-color: var(--footer-bgc);
     padding: 40px 0;
     font-size: 14px;
+    
+}
+
+footer div.linha {
+    position: relative;
 }
 
 footer div.linha a {
@@ -852,3 +860,14 @@ footer div.linha p {
     text-align: center;
     margin: 0;
 }
+
+footer div.linha p:last-child {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    padding: 0 10px;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--gray-a);
+}
+
