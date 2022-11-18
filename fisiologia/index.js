@@ -9,7 +9,7 @@ const doseador = {
         // Para mobile
         document.querySelector("body").classList.add("overflow-h");
         campoFarmaco.classList.remove("pos-relative");
-        window.innerWidth < 1024 && document.querySelector("a#logotipo").scrollIntoView();
+        window.innerWidth < 1024 && document.querySelector("body").scrollIntoView();
     },
 
     fecharSelect() {
@@ -20,7 +20,7 @@ const doseador = {
         campoFarmaco.classList.add("pos-relative");
 
         // Para resetar o input.value e os resultados da pesquisa anterior
-        const selectChildren = select.querySelectorAll("li.placeholder, div.optgroup.arvs h3, div.optgroup.arvs li");
+        const selectChildren = select.querySelectorAll("li.placeholder, div.optgroup h3, div.optgroup li");
 
         select.querySelector("#src").value = "";
         for (const child of selectChildren) {
@@ -92,7 +92,7 @@ window.addEventListener("load", () => {
     selectOptions = select.querySelectorAll("li");
     selectSrc = select.querySelector("input#src");
     const selectSrcBtn = select.querySelector("button.voltar");
-    expansoresDeSelect = document.querySelectorAll(".btn-expandir-select, label.arv");
+    expansoresDeSelect = document.querySelectorAll(".btn-expandir-select, label.farmaco");
 
     // Abrir lista de fármacos
     expansoresDeSelect.forEach (expansor => {

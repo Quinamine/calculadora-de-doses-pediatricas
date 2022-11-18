@@ -31,9 +31,11 @@
         
         <header>
             <div class="linha">
-                <a href="index.html" id="logotipo">Calculadora de Doses Pediátricas</a>
+                <a href="index.html" id="logotipo">
+                    <h1>Calculadora de Doses Pediátricas</h1>
+                </a>
         
-                <nav class="menu-principal on">
+                <nav class="menu-principal">
                     <ul>
                          <!-- Baixar -->
                          <svg style="width: 16px; height: 16px;" class="download">
@@ -85,7 +87,7 @@
                 <p class="msg-de-validacao-de-peso"></p>
 
                 <div class="campo-de-farmaco pos-relative">                            
-                    <label for="farmaco">Fármaco:</label>
+                    <label class="farmaco">Fármaco:</label>
                    
                     <ul class="select">
                         <li class="placeholder arvs selected" data-nome="placeholder">
@@ -97,32 +99,32 @@
                         <div class="caixa-de-pesquisa">
                             <button class="voltar">
                                 <svg style="width: 16px; height: 16px;">
-                                    <line x1="0%" x2="50%" y1="50%" y2="0" stroke-width="2px" stroke="var(--blc-text-color)"></line>
-                                    <line x1="0%" x2="50%" y1="50%" y2="100%" stroke-width="2px" stroke="var(--blc-text-color)"></line>
-                                    <line x1="-1" x2="100%" y1="50%" y2="50%" stroke-width="2px" stroke="var(--blc-text-color)"></line>
+                                    <line x1="0%" x2="50%" y1="50%" y2="0" stroke-width="2px" stroke="var(--gray)"></line>
+                                    <line x1="0%" x2="50%" y1="50%" y2="100%" stroke-width="2px" stroke="var(--gray)"></line>
+                                    <line x1="-1" x2="100%" y1="50%" y2="50%" stroke-width="2px" stroke="var(--gray)"></line>
                                 </svg>
                             </button>
                             <input type="search" id="src" placeholder="Pesquisar fármacos" />
                         </div>
                         <div class="optgroup penicilinas">
                             <h3>PENICILINAS</h3>                
-                            <li value="fenox-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                            <li data-nome="fenox-susp" data-doseporkg="50" data-dos="250" data-pos="4" data-dil="5" data-forma="susp">
                                 <span>Fenoximetil 250 mg/5 ml Susp.</span>
                             </li>
 
-                            <li  value="benzatina" data-doseporkg="50000" data-dos="2400000"  data-pos="1" data-forma="inj-im" data-tipodose="parenteral">
+                            <li  data-nome="benzatina" data-doseporkg="50000" data-dos="2400000"  data-pos="1" data-forma="inj-im">
                                 <span>Penicilina Benzatínica 2.4 milhões U.I Inj.</span>
                             </li>
 
-                            <li value="procaina" data-doseporkg="50000" data-dos="3000000" data-pos="1" data-forma="inj-im" data-tipodose="parenteral">
+                            <li data-nome="procaina" data-doseporkg="50000" data-dos="3000000" data-pos="1" data-forma="inj-im">
                                 <span>Penicilina Procaína 3 milhões U.I Inj.</span>
                             </li>
 
-                            <li value="amoxicilina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp">       
+                            <li data-nome="amoxicilina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp">       
                                 <span>Amoxicilina 250 mg/5 ml Susp.</span>
                             </li>
 
-                            <li value="clavamox-susp" data-doseporkg="50" data-dos="312.5" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                            <li data-nome="clavamox-susp" data-doseporkg="50" data-dos="312.5" data-pos="3" data-dil="5" data-forma="susp">
                                 <span>Amoxicilina e Ácido Clavulânico 312.5 mg/5 ml Susp.</span>
                             </li>
                         </div>
@@ -130,11 +132,11 @@
                         <div class="optgroup macrolidos">
                             <h3>MACRÓLIDOS</h3>
                             
-                            <li value="azitromicina" data-doseporkg="10" data-dos="250" data-pos="1" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                            <li data-nome="azitromicina" data-doseporkg="10" data-dos="250" data-pos="1" data-dil="5" data-forma="susp">
                                 <span>Azitromicina 200 mg/5 ml Susp.</span>
                             </li>
 
-                            <li value="eritromicina-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                            <li data-nome="eritromicina-susp" data-doseporkg="50" data-dos="250" data-pos="4" data-dil="5" data-forma="susp">
                                 <span>
                                     Eritromicina 250 mg/5 ml Susp.
                                 </span>
@@ -144,44 +146,45 @@
                         <div class="optgroup sulfamidas">
                             <h3>SULFAMIDAS</h3>
 
-                            <li value="ctz-susp" data-doseporkg="40" data-dos="240" data-pos="2" data-dil="5" data-forma="susp" data-tipodose="padrao" data-camporequired="idade">
+                            <!-- 20 mg/kg/dose -->
+                            <li data-nome="ctz-susp" data-doseporkg="40" data-dos="240" data-pos="2" data-dil="5" data-forma="susp">
                                 <span>Cotrimoxazol 240 mg/5 ml Susp.</span>     
                             </li>
                         </div>
 
                         <div class="optgroup anfenicois">
                             <h3>ANFENICÓIS</h3>
-                            <li value="cloranfenicol-susp" data-doseporkg="50" data-dos="250" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                            <li data-nome="cloranfenicol-susp" data-doseporkg="50" data-dos="250" data-pos="4" data-dil="5" data-forma="susp">
                                 <span>Cloranfenicol 250 mg/5 ml Susp.</span>
                             </li>
                         </div>
 
                         <div class="optgroup nitroimidazolicos">
                             <h3>NITROIMIDAZÓLICOS</h3>
-                            
-                            <li value="metronidazol-susp" data-doseporkg="22.5" data-dos="200" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
-                                <span>Cloranfenicol 250 mg/5 ml Susp.</span>
+
+                            <li data-nome="metronidazol-susp-125" data-doseporkg="22.5" data-dos="125" data-pos="3" data-dil="5" data-forma="susp">
+                                <span>Metronidazol 125 mg/5 ml Susp.</span>
                             </li>
 
-                            <li value="metronidazol-susp-125" data-doseporkg="22.5" data-dos="125" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp" data-camporequired="peso">
-                                <span>Metronidazol 125 mg/5 ml Susp.</span>
+                            <li data-nome="metronidazol-susp" data-doseporkg="22.5" data-dos="200" data-pos="3" data-dil="5" data-forma="susp">
+                                <span>Metronidazol 200 mg/5 ml Susp.</span>
                             </li>
                         </div>
                         
                         <div class="optgroup anti-helmintos">
                             <h3>ANTI-HELMINTICOS</h3>
-                            <li value="mebendazol-100" data-dos="100" data-pos="2" data-forma="cp" data-tipodose="padrao">
+                            <li data-nome="mebendazol-100" data-dos="100" data-pos="2" data-forma="cp" data-tipodose="padrao">
                                 <span>Mebendazol 100mg Comp. </span>
                             </li>
                         </div>
                         
                         <div class="optgroup anti-malaricos">
                             <h3>ANTI-MALÁRICOS</h3>
-                            <li value="al" data-dos="140"  data-pos="2" data-forma="cp" data-tipodose="padrao" data-camporequired="both">
+                            <li data-nome="al" data-dos="140"  data-pos="2" data-forma="cp">
                                 <span>Arteméter+Lumefantrina 140 mg Comp.</span>
                             </li>
 
-                            <li value="quinina" data-doseporkg="30" data-dos="300" data-pos="3" data-forma="cp" data-tipodose="padrao" data-camporequired="both">
+                            <li data-nome="quinina" data-doseporkg="30" data-dos="300" data-pos="3" data-forma="cp">
                                 <span>Quinina 300 mg Comp.</span>
                             </li>
                         </div>
@@ -190,11 +193,11 @@
                             <h3>ANALGÉSICOS-ANTIPIRÉTICOS E AINES</h3>
                             
                             <!--Dose de Paracetamol susp: 10mg/kg/dose ou 30mg/kg/dia-->
-                            <li value="paracetamol-susp" data-doseporkg="30" data-dos="120" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
-                                <span> Paracetamol 120 mg/5 ml Susp.</span>
+                            <li data-nome="paracetamol-susp" data-doseporkg="30" data-dos="120" data-pos="3" data-dil="5" data-forma="susp">
+                                <span>Paracetamol 120 mg/5 ml Susp.</span>
                             </li>
 
-                            <li value="ibuprofeno-susp" data-doseporkg="20" data-dos="100" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
+                            <li data-nome="ibuprofeno-susp" data-doseporkg="20" data-dos="100" data-pos="3" data-dil="5" data-forma="susp">
                                 <span>Ibuprofeno 100 mg/5 ml Susp.</span>
                             </li>
                         </div>
@@ -202,16 +205,16 @@
                         <div class="optgroup antiemeticos">
                             <h3>ANTIEMÉTICOS</h3>
                            
-                            <li value="metoclopramida-susp" data-doseporkg="0.5" data-dos="5" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
-                                <span>Metoclopramida 5 mg/5 .ml Xpe.<span>
+                            <li data-nome="metoclopramida-susp" data-doseporkg="0.5" data-dos="5" data-pos="3" data-dil="5" data-forma="susp">
+                                <span>Metoclopramida 5 mg/5 ml Xpe.<span>
                             </li>
                         </div>
 
                         <div class="optgroup anti-helmintos">
                             <h3>ANTI-HISTAMÍNICOS</h3>
                             
-                            <li value="clorfeniramina-susp" data-doseporkg="0.4" data-dos="2" data-pos="3" data-dil="5" data-forma="susp" data-tipodose="dosesusp">
-                                <span> Clorfeniramina 2 mg/5 ml Xpe.</span>
+                            <li data-nome="clorfeniramina-susp" data-doseporkg="0.4" data-dos="2" data-pos="3" data-dil="5" data-forma="susp">
+                                <span>Clorfeniramina 2 mg/5 ml Xpe.</span>
                             </li>
                         </div>            
                     </ul>
@@ -225,7 +228,7 @@
 
                 <div class="output dose-e-posologia">
                     <h2>Dose e Posologia</h2>
-                   <div class="dose"></div>
+                   <p class="dose"></p>
                 </div>
 
                 <div class="output notas">
@@ -266,7 +269,7 @@
                         <tbody>
                             <tr>
                                 <td>Fenoximetil 250 mg/5 ml Susp.</td>
-                                <td>50 mg/kg/dia divididos em 3 tomas.</td>
+                                <td>50 mg/kg/dia divididos em 4 tomas.</td>
                             </tr>
                             <tr>
                                 <td>Penicilina Benzatínica 2.4 milhões U.I Inj.</td>
@@ -290,11 +293,15 @@
                             </tr>
                             <tr>
                                 <td>Eritromicina 250 mg/5 ml Susp.</td>
-                                <td>50 mg/kg/dia divididos em 3 tomas.</td>
+                                <td>50 mg/kg/dia divididos em 4 tomas.</td>
+                            </tr>
+                            <tr>
+                                <td>Cotrimoxazol 240 mg/5 ml Susp.</td>
+                                <td>20 mg/kg de 12 em 12 horas.</td>
                             </tr>
                             <tr>
                                 <td>Cloranfenicol 250 mg /5 ml Susp.</td>
-                                <td>50 mg/kg/dia divididos em 3 tomas.</td>
+                                <td>50 mg/kg/dia divididos em 4 tomas.</td>
                             </tr>
                             <tr>
                                 <td>Metronidazol 125 mg/5 ml Susp.</td>
@@ -304,36 +311,36 @@
                                 <td rowspan="2" class="y-center">
                                     Mebendazol 100mg Comp. 
                                 </td>
-                                <td>Peso &lt; 20 kg:1/2 comp. de 12/12 h.</td>
+                                <td>Peso &lt; 20 kg:1/2 cp de 12/12 h.</td>
                             </tr>
 
                             <tr>
-                                <td>Peso &ge; 20 kg: 1 comp. de 12/12 h.</td>
+                                <td>Peso &ge; 20 kg: 1 cp de 12/12 h.</td>
                             </tr>
 
                             <tr>
                                 <td rowspan="5" class="y-center">Arteméter+Lumefantrina 140 mg Comp.</td>
                                 <td>&lt; 5 kg: Não recomendado.</td>
                             </tr>
-                            <tr><td>5 - 14.9 kg: 1 comp. de 12/12 h por 3 dias.</td></tr>
-                            <tr><td>15 - 24.9 kg: 2 comp. de 12/12 h por 3 dias.</td></tr>
-                            <tr><td>25 - 34.9 kg: 3 comp. de 12/12 h por 3 dias.</td></tr>
-                            <tr><td>&ge; 35 kg: 4 comp. de 12/12 h por 3 dias.</td></tr>
+                            <tr><td>5 - 14.9 kg: 1 cp de 12/12 h por 3 dias.</td></tr>
+                            <tr><td>15 - 24.9 kg: 2 cps de 12/12 h por 3 dias.</td></tr>
+                            <tr><td>25 - 34.9 kg: 3 cps de 12/12 h por 3 dias.</td></tr>
+                            <tr><td>&ge; 35 kg: 4 cps de 12/12 h por 3 dias.</td></tr>
                             <tr>
                                 <td rowspan="5" class="y-center">Quinina 300 mg Comp.</td>
-                                <td>&lt; 10 kg: 1/4 comp. de 8/8 h por 7 dias.</td>
+                                <td>&lt; 10 kg: 1/4 cps de 8/8 h por 7 dias.</td>
                             </tr>
                             <tr>
-                                <td>10 - 14.9 kg: 1/2 comp. de 8/8 h por 7 dias.</td>
+                                <td>10 - 14.9 kg: 1/2 cps de 8/8 h por 7 dias.</td>
                             </tr>
                             <tr>
-                                <td>15 - 24.9 kg: 3/4 comp. de 8/8 h por 7 dias.</td>
+                                <td>15 - 24.9 kg: 3/4 cps de 8/8 h por 7 dias.</td>
                             </tr>
                             <tr>
-                                <td>25 - 35 kg: 1 comp. de 8/8 h por 7 dias.</td>
+                                <td>25 - 35 kg: 1 cp de 8/8 h por 7 dias.</td>
                             </tr>
                             <tr>
-                                <td>&gt; 35 kg: 2 comp. de 8/8 h por 7 dias.</td>
+                                <td>&gt; 35 kg: 2 cps de 8/8 h por 7 dias.</td>
                             </tr>
                             <tr>
                                 <td>Paracetamol 120 mg/5 ml Susp.</td>
