@@ -99,7 +99,7 @@ p, span, dt, dd, main li:last-child {
     line-height: 1.5;
 }
 
-p.mb-15, li.mb-15 {
+p.mb-15 {
     margin-bottom: 15px;
 }
 
@@ -124,12 +124,8 @@ em {
     background-color: var(--gray-d);
 }
 
-abbr {
-    text-decoration: none;
-}
-
 figure, picture {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 img {
@@ -251,6 +247,12 @@ nav.menu-principal.on {
     visibility: visible;
 }
 
+@media screen and (min-width: 1245px) {
+    nav.menu-principal.on {
+        right: calc(50vw - 1245px / 2);
+    }
+}
+
 nav.menu-principal ul {
     position: relative;
 }
@@ -289,15 +291,18 @@ nav.menu-principal li:hover {
 }
 
 nav.menu-principal li button {
-    border-top: thin solid var(--gray-d)
+    border-top: thin solid var(--gray-d);
 }
 
 @media screen and (min-width: 1024px) {
     nav.menu-principal ul svg.share,
-    nav.menu-principal li button {
+    nav.menu-principal li button.partilhar {
         display: none;
     }
 }
+
+
+
 /* MAIN  */ 
 main.linha {
     flex: 1;
@@ -559,10 +564,6 @@ ul.select div.optgroup h3 {
     display: none;
 }
 
-ul.select div.optgroup li.rtv {
-    position: relative;
-}
-
 ul.select div.caixa-de-pesquisa {
     position: sticky;
     top: -10px;
@@ -622,6 +623,10 @@ ul.select.on div.optgroup li:hover {
 }
 
 /* Classes Manipuláveis com JS */
+.hide {
+    display: none !important; /* Para pesquisa de fármacos */
+}
+
 p.msg-de-validacao-de-peso {
     margin: 8px 0 0 0;
     transition-duration: 150ms;
@@ -643,8 +648,6 @@ article {
     border-top: thin solid var(--gray-d);
     padding: 20px 4%;
 }
-
-
 
 @media screen and (min-width: 1024px) {
     article {
@@ -803,18 +806,13 @@ section.propaganda a div.description {
     background-color: var(--yt);
     display: flex;
     flex-direction: column;
-    border-top: 1px solid var(--border-color);
-}
-
-@media screen and (min-width: 1024px) {
-    section.propaganda a div.description {
-        border-color: var(--gray);
-    }  
+    border-top: 1px solid var(--gray-c);
 }
 
 div.contentor-dos-cards div.description h5 {
    color: var(--blc-text-color);
    font-size: 14px;
+   margin-bottom: 10px;
 }
 
 div.contentor-dos-cards div.description p {
@@ -867,7 +865,6 @@ footer div.linha p:last-child {
     left: 0;
     padding: 0 10px;
     font-size: 11px;
-    font-style: italic;
-    color: var(--gray-a);
+    color: var(--gray);
 }
 

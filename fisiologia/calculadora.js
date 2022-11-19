@@ -33,7 +33,7 @@ class Calculadora {
         } 
         else if(this.posologia === "2") {
             pos = "de 12 em 12 horas";
-            if(this.farmaco === "al") pos+= " durante 3 dias consecutivos"
+            if(this.farmaco === "al" && this.farmaco === "mebendazol-100") pos+= " durante 3 dias consecutivos";
         } 
         else if(this.posologia === "3") {
             pos = "de 8 em 8 horas";
@@ -56,7 +56,7 @@ class Calculadora {
         }
 
         else if(this.farmaco === "azitromicina") {
-            camposDoseEnota[1].innerHTML = `Não tomar ao mesmo tempo que medicamentos que contêm alumínio e magnésio (ex.: Hidróxido de Alumínio e Hidróxido de Magnésio).`; 
+            camposDoseEnota[1].innerHTML = `Não tomar ao mesmo tempo que medicamentos que contêm alumínio e magnésio (ex.: hidróxido de alumínio e hidróxido de Magnésio).`; 
         } 
 
         else if(this.farmaco === "ctz-susp") {
@@ -81,11 +81,11 @@ class Calculadora {
         }
          
         else if(this.farmaco === "quinina") {
-            camposDoseEnota[1].innerHTML = `Evitar o uso concomitante com os Antiácidos, pois aumentam a toxicidade da Quinina.`; 
+            camposDoseEnota[1].innerHTML = `Evitar o uso concomitante com os anti-ácidos, pois aumentam a toxicidade da Quinina.`; 
         } 
         
         else if(this.farmaco === "ibuprofeno-susp") {
-            camposDoseEnota[1].innerHTML = `Associado à Zidovudina, há um risco maior de toxicidade hematológica. A sua concentração plasmática é aumentada em associação com Ritonavir.`; 
+            camposDoseEnota[1].innerHTML = `Associado à zidovudina, há um risco maior de toxicidade hematológica. A sua concentração plasmática é aumentada em associação com ritonavir.`; 
         } 
 
         else {

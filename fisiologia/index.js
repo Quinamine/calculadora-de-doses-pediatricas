@@ -71,7 +71,7 @@ const doseador = {
 
 const menu = {
     abrir() {
-        document.querySelector("nav.menu-principal").classList.add("on");
+        document.querySelector("nav.menu-principal").classList.toggle("on");
     }, 
 
     fechar() {
@@ -79,8 +79,7 @@ const menu = {
     }
 }
 
-let campoFarmaco,
-select, selectSrc, selectOptions, expansoresDeSelect;
+let campoFarmaco, select, selectSrc, selectOptions, expansoresDeSelect;
 window.addEventListener("load", () => { 
     // INVOCAÇÃO 
     const menuPontinhos = document.querySelector("div.menu-pontinhos");
@@ -97,7 +96,7 @@ window.addEventListener("load", () => {
     // Abrir lista de fármacos
     expansoresDeSelect.forEach (expansor => {
         expansor.addEventListener("click", () => doseador.abrirSelect());
-    })
+    });
 
     selectOptions.forEach ( option => {
         option.addEventListener("click", () => {
@@ -168,13 +167,16 @@ window.addEventListener("click", event => {
     }
 });
 
-window.addEventListener("scroll", () => {
-    menu.fechar();
-    if(window.innerWidth > 1023) {
-        doseador.fecharSelect();
-        document.querySelector(".campo-de-farmaco").classList.remove("focus");
-    }
-});
+window.onload = () => {
+    window.addEventListener("scroll", () => {
+        menu.fechar();
+        if(window.innerWidth > 1023) {
+            doseador.fecharSelect();
+            document.querySelector(".campo-de-farmaco").classList.remove("focus");
+        }
+    });
+}
+
 
 
 
