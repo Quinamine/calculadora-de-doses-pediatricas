@@ -124,7 +124,7 @@ window.addEventListener("load", () => {
     // PARTILHAR
     let conteudo = {
         title: "Calculadora de Doses Pediátricas",
-        text: "É um serviço online gratuito que, com base no peso, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica para pacientes pediátricos. Tem como referência o Formulário Nacional de Medicamentos - 5ª Edição, 2007.</p>",
+        text: "A Calculadora de Doses Pediátricas é um serviço online gratuito que, com base no peso, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica para pacientes pediátricos. Tem como referência o Formulário Nacional de Medicamentos - 5ª Edição, 2007.",
         url: "https://www.quinamine.github.io/calculadora-de-doses-pediatricas/index.html"
     }
 
