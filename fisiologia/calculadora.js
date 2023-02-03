@@ -56,7 +56,7 @@ class Calculadora {
         }
 
         else if(this.farmaco === "azitromicina") {
-            camposDoseEnota[1].innerHTML = `Não tomar ao mesmo tempo que medicamentos que contêm alumínio e magnésio (ex.: hidróxido de alumínio e hidróxido de Magnésio).`; 
+            camposDoseEnota[1].innerHTML = `Não tomar ao mesmo tempo que medicamentos que contêm alumínio e magnésio (ex.: hidróxido de alumínio e hidróxido de magnésio).`; 
         } 
 
         else if(this.farmaco === "ctz-susp") {
