@@ -213,7 +213,7 @@ function instantiateDoser() {
     if(weight !== "" && weight < 1) {
         doserGeneralFunctions.showMinWeightAlert();
         doserGeneralFunctions.clearDoseAndnote();
-    } else if(weight !== "" && weight >= 3) {
+    } else if(weight !== "" && weight >= 1) {
         doserGeneralFunctions.clearMinWeightAlert();
         doserGeneralFunctions.clearDoseAndnote();
         const medicines = document.querySelectorAll(".doser__select__option");
