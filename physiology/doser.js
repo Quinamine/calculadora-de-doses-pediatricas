@@ -128,7 +128,7 @@ class Doser {
         } else if(this.farmaco.includes("amox")) {
             nota = `<strong>Contra-indicações</strong>: Hipersensibilidade (alergia) às penicilinas, mononucleose infecciosa, leucemia linfocítica crónica.`;
         } else if(this.farmaco === "azitromicina") {
-            nota = `<b>(1)</b> Não tomar ao mesmo tempo que medicamentos que contém alumínio e magnésio. <b>(2)</b>&nbsp;<strong>Contra-indicações</strong>: Hipersensibilidade (alergia) à azitromicina ou à outro macrólido. Insuficiência hepática.`;
+            nota = `<b>(1)</b> Não tomar ao mesmo tempo que medicamentos que contêm alumínio e magnésio. <b>(2)</b>&nbsp;<strong>Contra-indicações</strong>: Hipersensibilidade (alergia) à azitromicina ou à outro macrólido. Insuficiência hepática.`;
         }else if(this.farmaco.includes("eritromicina")) {
             nota = `Fármaco seguro e eficaz mas que com frequência provoca intolerância gastrointestinal (dor abdominal anorexia, náusea, vómitos, diarreia). Ocasionalmente elevação transitória das transaminases hepáticas, prurido anal, estomatite.`;
         }  else if(this.farmaco === "ctz-susp") {
