@@ -8,25 +8,21 @@ const doserGeneralFunctions = {
     },
     openOrCloseSelect() {
         const doserSelect = document.querySelector(".doser__select");
-        doserSelect.classList.toggle("--open");
         const selectOfMedicines = document.querySelector(".doser__section--medicines");
-        doserGeneralFunctions.highlightFocusedInput(selectOfMedicines);
         const body = document.querySelector("#body");
-        body.classList.toggle("--overflow-hide-on-mobile");
+        doserSelect.classList.toggle("--open");
+        doserGeneralFunctions.highlightFocusedInput(selectOfMedicines);
+        body.classList.toggle("--overflow-hidden-on-mobile");
+        doserGeneralFunctions.showOptionsHiddenByFilter();
     },
     closeSelect() {
         const doserSelect = document.querySelector(".doser__select");
-        doserSelect.classList.remove("--open");
         const selectOfMedicines = document.querySelector(".doser__section--medicines");
-        doserGeneralFunctions.removehighlightFromFocusedInput(selectOfMedicines);
         const body = document.querySelector("#body");
-        body.classList.remove("--overflow-hide-on-mobile");
-        // Mostrar options ocultas pela funcionalidade de pesquisa;
-        const options = document.querySelectorAll(".doser__select *");
-        for(const option of options) {
-            option.classList.remove("--display-none");
-            if(option.matches(".doser__select__input--search")) option.value = "";
-        }
+        doserSelect.classList.remove("--open");
+        doserGeneralFunctions.removehighlightFromFocusedInput(selectOfMedicines);
+        body.classList.remove("--overflow-hidden-on-mobile");
+        doserGeneralFunctions.showOptionsHiddenByFilter();
     },
     selectAnOption(optionToSelect) {
         const options = document.querySelectorAll(".doser__select__option");
@@ -60,6 +56,15 @@ const doserGeneralFunctions = {
             } else {
                 showOrHideElement("hide", optgroup);
             }
+        }
+    },
+    showOptionsHiddenByFilter() {
+        const options = document.querySelectorAll(".doser__select *");
+        const inputSearch = document.querySelector(".doser__select__input--search")
+        for(const option of options) {
+            if(option.matches(".doser__select__optgroup--ctz, .doser__select__optgroup--anti-tbs")) return 0;
+            option.classList.remove("--display-none");
+            inputSearch.value = "";
         }
     },
     showMinWeightAlert() {
