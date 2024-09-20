@@ -52,6 +52,12 @@ function actualizarAnoDeCopyright() {
     const currentYearOutput = document.querySelector(".footer__current-year");
     currentYearOutput.textContent = anoActual;
 }
+function fecharTopoPropaganda() {
+    const topoPropaganda = document.querySelector(".topo-propaganda");
+    const body = document.querySelector("#body");
+    topoPropaganda.classList.add("topo-propaganda--off");
+    body.classList.remove("body-com-topo-propaganda")
+}
 function listenToEvents() {
     // Open & close meatBalls-menu by clicking the menu
     const meatBallsMenu = document.querySelector(".meatballs-menu");
@@ -111,6 +117,9 @@ function listenToEvents() {
             console.log('O seu navegador não tem suporte ao método "navigator.share()".');
         }
     });
+    // Fechar Topo Propaganda 
+    const btnXDetopoProgaganda = document.querySelector(".topo-propaganda__btn");
+    btnXDetopoProgaganda.addEventListener("click", fecharTopoPropaganda);
 };
 window.addEventListener("load", () => {
     listenToEvents();
