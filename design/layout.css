@@ -398,7 +398,7 @@
     background-color: var(--gray--light);
 }
 .body-com-topo-propaganda .doser__select.--open {
-    top: 100px;
+    top: 105px;
 }
 @media screen and (min-width: 1024px) {
     .doser__select.--open {
@@ -725,6 +725,16 @@
     z-index: 9999;
     display: none;
 }
+@media screen and (max-width: 409px) {
+    .body-com-topo-propaganda .article__section--fixed {
+        top: calc(48.2px + 53.59px);
+    }
+}
+@media screen and (min-width: 410px) and (max-width: 1023px) {
+    .body-com-topo-propaganda .article__section--fixed {
+        top: calc(48.2px + 38px);
+    }
+}
 @media screen and (min-width: 1024px) {
     .article__section--fixed {
         max-width: 700px;
@@ -746,6 +756,16 @@
     z-index: 1000;
     background-color: var(--black--a-5);
     color: var(--yt);
+}
+@media screen and (max-width: 409px) {
+    .body-com-topo-propaganda .article__section__btn--close {
+        top: 53.59px;
+    }
+}
+@media screen and (min-width: 410px) and (max-width: 1023px) {
+    .body-com-topo-propaganda .article__section__btn--close {
+        top: 38px;
+    }
 }
 @media screen and (min-width: 1024px) {
     .article__section__btn--close {
@@ -1119,6 +1139,10 @@ details p {
     position: absolute;
     left: 15px;
     top: calc(50% - 19px / 2);
+}
+.topo-propaganda__link__trecho-acessar {
+    text-decoration: underline;
+    cursor: pointer;
 }
 .topo-propaganda__btn {
     background-color: var(--blue--light);
