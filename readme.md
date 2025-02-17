@@ -1,6 +1,6 @@
 # Calculadora de Doses Pediátricas
 
-A **Calculadora de Doses Pediátricas** é um serviço online gratuito que, de acordo com o peso inserido pelo usuário, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica. Tem como referência o [Formulário Nacional de Medicamentos, 5ª Edição, 2007](sources/formulario-nacional-de-medicamentos.pdf).
+A **Calculadora de Doses Pediátricas** é um serviço online gratuito que, de acordo com o peso inserido pelo usuário, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica. Tem como referência o [Formulário Nacional de Medicamentos, 5ª Edição, 2007](bibliografia/formulario-nacional-de-medicamentos.pdf).
 
 A Calculadora está basicamente estruturada da seguinte forma:
 
