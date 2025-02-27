@@ -173,6 +173,7 @@
     font-size: 15px;
     background-color: var(--gray--5);
     border-bottom: thin solid var(--gray--7);
+    line-height: 1.2;
 }
 .meatballs-menu-expanded__option--border-radius-t {
     border-radius: 5px 5px 0 0;
@@ -401,6 +402,11 @@
 .body-com-topo-propaganda .doser__select.--open {
     top: 105px;
     padding-bottom: 180px;
+}
+@media screen and (min-width: 475px) {
+    .body-com-topo-propaganda .doser__select.--open {
+        top: 86px;
+    }
 }
 @media screen and (min-width: 1024px) {
     .doser__select.--open {
