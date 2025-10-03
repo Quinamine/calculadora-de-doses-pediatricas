@@ -30,10 +30,10 @@
         </script>
         <noscript>O seu navegador está com o JavaScript desabilitado e isso bloqueia as funcionalidades da calculadora. Habilite-o nas configurações do navegador e recarregue a página.</noscript>
     </head>
-    <body id="body" class="body-com-topo-propaganda" ontouchstart="">
+    <body id="body" class="body-com-topo-propaganda --overflow-h" ontouchstart="">
         <div class="topo-propaganda">
             <div class="topo-propaganda__row">
-                <a href=https://quinamine.github.io/aderito-felix-quinamine/paginas/portfolio.html class="topo-propaganda__link">Sou um link para outros serviços afins, <span class="--hide-on-mobile">clique</span><span class="--hide-on-desktop">toque</span>-me para acessá-los.</a>
+                <a href=https://quinamine.github.io/aderito-felix-quinamine/paginas/portfolio.html class="topo-propaganda__link">Este é um link para outros serviços afins, <span class="--hide-on-mobile">clique</span><span class="--hide-on-desktop">toque</span>-o para acessá-los.</a>
                 <button class="topo-propaganda__btn" title="Fechar">&times;</button>
             </div>
         </div>
@@ -163,11 +163,11 @@
                     <h2 class="doser__section__title">Notas e Precauções</h2>
                     <p class="doser__section__note doser__section__note--no-padding"></p>
                 </div>
-                <p class="bibliography-source bibliography-source--hide-on-desktop"><strong>Referência:</strong> MOÇAMBIQUE. Ministério da Saúde. Comissão Técnica de Terapêutica e Farmácia. <a href="bibliografia/formulario-nacional-de-medicamentos.pdf">Formulário Nacional de Medicamentos, 5ª Edição, 2007</a>.</p>
+                <p class="bibliography-source bibliography-source--hide-on-desktop"><strong>Referência:</strong> MOÇAMBIQUE. Ministério da Saúde. Comissão Técnica de Terapêutica e Farmácia. <a href="bibliografia/formulario-nacional-de-medicamentos.pdf" target="_blank">Formulário Nacional de Medicamentos, 5ª Edição, 2007</a>.</p>
             </div>
             <article class="article">
                 <h2 class="article__title article__title--level-1">Sobre a Calculadora de Doses Pediátricas</h2>
-                    <p class="article__p">A <b>Calculadora de Doses Pediátricas</b> é um serviço online gratuito que, de acordo com o peso inserido pelo usuário, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica. Tem como referência o <a href="bibliografia/formulario-nacional-de-medicamentos.pdf">Formulário Nacional de Medicamentos, 5ª Edição, 2007</a>.</p>
+                    <p class="article__p">A <b>Calculadora de Doses Pediátricas</b> é um serviço online gratuito que, de acordo com o peso inserido pelo usuário, doseia automaticamente alguns dos medicamentos mais usuais na prática clínica. Tem como referência o <a href="bibliografia/formulario-nacional-de-medicamentos.pdf" target="_blank">Formulário Nacional de Medicamentos, 5ª Edição, 2007</a>.</p>
                     <p class="article__p">A Calculadora está basicamente estruturada da seguinte forma:</p>
                     <ul class="article__list article__list--ul">
                         <li> Um campo com o rótulo <b>Peso</b>, para inserir o peso em quilograma(s) da criança para a qual você pretende calcular a dose;</li>
@@ -560,8 +560,8 @@
                 <div class="footer__bibliography-sources">
                     <h5 class="footer__bibliography-sources__title">Referências:</h5>
                     <ul class="footer__bibliography-sources__list">
-                        <li>MOÇAMBIQUE. Ministério da Saúde. Comissão Técnica de Terapêutica e Farmácia. <a href="bibliografia/formulario-nacional-de-medicamentos.pdf" class="footer__bibliography-sources__link">Formulário Nacional de Medicamentos, 5ª Edição, 2007</a>.</li>
-                        <li>MOÇAMBIQUE. Ministério da Saúde. <a href="bibliografia/normas-de-tratamento-da-malaria-2017.pdf" class="footer__bibliography-sources__link">Normas de Tratamento da Malária em Moçambique, 3ª Edição, 2017</a>.</li>
+                        <li>MOÇAMBIQUE. Ministério da Saúde. Comissão Técnica de Terapêutica e Farmácia. <a href="bibliografia/formulario-nacional-de-medicamentos.pdf" target="_blank" class="footer__bibliography-sources__link">Formulário Nacional de Medicamentos, 5ª Edição, 2007</a>.</li>
+                        <li>MOÇAMBIQUE. Ministério da Saúde. <a href="bibliografia/normas-de-tratamento-da-malaria-2017.pdf" target="_blank" class="footer__bibliography-sources__link">Normas de Tratamento da Malária em Moçambique, 3ª Edição, 2017</a>.</li>
                     </ul>
                 </div>
                 <p class="footer__p footer__p--created-by">Criado com atenção e <span class="footer__p__heart">❤</span> por <a href=https://quinamine.github.io/aderito-felix-quinamine/index.html title="Acessar biografia &raquo;">Adérito Félix Quinamine</a> | ©&nbsp;<span class="footer__current-year"></span> Calculadora de Doses Pediátricas
@@ -570,6 +570,19 @@
                 <a href="#root" class="footer__link--back-to-top">Rolar para o topo</a>
             </div>
         </footer>
-        <div class="blurring-div"></div>
+        <div class="blurring-div --on"></div>
+        <div class="caixa-alerta">
+            <svg style=width:40px;height:40px>
+                <linearGradient id=meuGradiente x1=0% x2=0% y1=0% y2=100%>
+                    <stop offset=0% style=stop-color:gray></stop>
+                    <stop offset=100% style=stop-color:#ff0></stop>
+                </linearGradient>
+                <polygon fill=url(#meuGradiente) points="20,0 40,40, 0,40" stroke=#333 stroke-width=1></polygon>
+                <text style=font-weight:700;font-size:28px x=15.335 y=35.5>!</text>
+            </svg>
+            <p class="caixa-alerta__first-p">Este serviço está indisponível para utilização porque carece da regulamentação oficial pelos orgãos competentes.</p>
+            <p>Sinceras desculpas pelo constrangimento!</p>
+        </div>
+        <script src="fisiologia/authz.js"></script>
     </body>
 </html>
